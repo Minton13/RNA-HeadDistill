@@ -1,7 +1,7 @@
 # Functional Attention Heads Are Transferable Units of RNA Foundation Models
 
-Code and analysis pipeline for the RECOMB submission *"Functional attention heads
-are transferable units of RNA foundation models"*.
+Code and analysis pipeline for the manuscript *"Functional attention heads
+are transferable units of RNA foundation models"* (under submission).
 
 The repository implements the full workflow of the paper:
 
