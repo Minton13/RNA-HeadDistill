@@ -1,0 +1,39 @@
+# Stage 4B head-to-head medium training: 50 slim shards, 1-2 GPUs, ~2000 steps.
+# Must beat native-head and linear baselines before full slim-cache build.
+run_name: head2head_medium
+output_dir: runs/head2head/head2head_medium
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+# 50 shards spanning the length-sorted cache (every ~21st shard)
+shards: []        # filled by scripts/head2head/04_make_medium_shards.py or --shards arg
+shard_stride: 21
+n_shards: 50
+val_shards: [1000, 1010, 1020, 1030, 1032]
+model:
+  adapter_dim: 64
+  adapter_ffn_mult: 2
+  train_backbone: true
+training:
+  max_steps: 2000
+  batch_size: 4
+  grad_accum: 2
+  lr: 1.0e-4
+  weight_decay: 0.01
+  grad_clip: 1.0
+  precision: bf16
+  route_weights: {L6: 1.0, L8: 1.0, L12: 1.0}
+  loss_lambdas: {kl: 1.0, mse: 1.0, cos: 0.1}
+  log_every: 20
+  save_every: 500
+  eval_every: 500
+  grad_diagnostics_every: 100
+  baselines: [native_head, linear_projection]
+runtime:
+  num_workers: 4
+  lru_cache_size: 2
+  length_bucketed: true
+  seed: 42

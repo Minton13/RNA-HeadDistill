@@ -1,0 +1,448 @@
+{
+  "generated_at": "2026-05-17T14:18:50",
+  "registry": "configs\\rnascope_models_offline.yaml",
+  "include_optional_server": true,
+  "include_explicit_large": true,
+  "models": {
+    "rnabert": {
+      "hf_id": "multimolecule/rnabert",
+      "local_dir": "assets/models/rnabert",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "rnabert",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\rnabert",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 2136893,
+      "size_gib": 0.002,
+      "file_count": 18
+    },
+    "rnafm": {
+      "hf_id": "multimolecule/rnafm",
+      "local_dir": "assets/models/rnafm",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "rnafm",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\rnafm",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 398188493,
+      "size_gib": 0.3708,
+      "file_count": 18
+    },
+    "splicebert": {
+      "hf_id": "multimolecule/splicebert",
+      "local_dir": "assets/models/splicebert",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "splicebert",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\splicebert",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 78964981,
+      "size_gib": 0.0735,
+      "file_count": 18
+    },
+    "rinalmo_micro": {
+      "hf_id": "multimolecule/rinalmo-micro",
+      "local_dir": "assets/models/rinalmo-micro",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "rinalmo_micro",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\rinalmo-micro",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 134029106,
+      "size_gib": 0.1248,
+      "file_count": 18
+    },
+    "utrbert_3mer": {
+      "hf_id": "multimolecule/utrbert-3mer",
+      "local_dir": "assets/models/utrbert-3mer",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "3UTRBERT representative; k-mer tokenizer",
+      "name": "utrbert_3mer",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\utrbert-3mer",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 347039222,
+      "size_gib": 0.3232,
+      "file_count": 18
+    },
+    "utrlm_mrl": {
+      "hf_id": "multimolecule/utrlm-mrl",
+      "local_dir": "assets/models/utrlm-mrl",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "UTR-LM representative for MRL/5UTR tasks",
+      "name": "utrlm_mrl",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\utrlm-mrl",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 4934543,
+      "size_gib": 0.0046,
+      "file_count": 18
+    },
+    "dnabert2": {
+      "hf_id": "zhihan1996/DNABERT-2-117M",
+      "local_dir": "assets/models/dnabert2",
+      "type": "dna",
+      "priority": "required_control",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "DNA pLM control",
+      "name": "dnabert2",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\dnabert2",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 468630239,
+      "size_gib": 0.4364,
+      "file_count": 26
+    },
+    "hyenadna_small": {
+      "hf_id": "multimolecule/hyenadna-small",
+      "local_dir": "assets/models/hyenadna-small",
+      "type": "dna",
+      "priority": "required_control",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "small HyenaDNA control",
+      "name": "hyenadna_small",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\hyenadna-small",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 6653778,
+      "size_gib": 0.0062,
+      "file_count": 20
+    },
+    "hyenadna_tiny": {
+      "hf_id": "multimolecule/hyenadna-tiny",
+      "local_dir": "assets/models/hyenadna-tiny",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "HyenaDNA tiny control",
+      "name": "hyenadna_tiny",
+      "group": "optional_server",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\hyenadna-tiny",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "generation_config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 1833750,
+      "size_gib": 0.0017,
+      "file_count": 20
+    },
+    "hyenadna_medium": {
+      "hf_id": "multimolecule/hyenadna-medium",
+      "local_dir": "assets/models/hyenadna-medium",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "HyenaDNA medium control",
+      "name": "hyenadna_medium",
+      "group": "optional_server",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\hyenadna-medium",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "generation_config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 13206135,
+      "size_gib": 0.0123,
+      "file_count": 20
+    },
+    "hyenadna_large": {
+      "hf_id": "multimolecule/hyenadna-large",
+      "local_dir": "assets/models/hyenadna-large",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "HyenaDNA large control",
+      "name": "hyenadna_large",
+      "group": "optional_server",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\hyenadna-large",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "generation_config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 26310960,
+      "size_gib": 0.0245,
+      "file_count": 20
+    },
+    "nucleotide_transformer_v2_500m": {
+      "hf_id": "InstaDeepAI/nucleotide-transformer-v2-500m-multi-species",
+      "local_dir": "assets/models/nucleotide-transformer-v2-500m",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "large DNA pLM control; download only if user requests or server staging mode enabled",
+      "name": "nucleotide_transformer_v2_500m",
+      "group": "optional_server",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\nucleotide-transformer-v2-500m",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 5972105979,
+      "size_gib": 5.562,
+      "file_count": 26
+    },
+    "rinalmo_mega": {
+      "hf_id": "multimolecule/rinalmo-mega",
+      "local_dir": "assets/models/rinalmo-mega",
+      "type": "rna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "server optional; do not download by default",
+      "name": "rinalmo_mega",
+      "group": "optional_server",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\rinalmo-mega",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 592313436,
+      "size_gib": 0.5516,
+      "file_count": 18
+    },
+    "rinalmo_giga": {
+      "hf_id": "multimolecule/rinalmo-giga",
+      "local_dir": "assets/models/rinalmo-giga",
+      "type": "rna",
+      "priority": "explicit_large",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "largest RiNALMo staging target; download only when explicitly requested",
+      "name": "rinalmo_giga",
+      "group": "explicit_large",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\rinalmo-giga",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 2603653247,
+      "size_gib": 2.4248,
+      "file_count": 18
+    },
+    "nucleotide_transformer_2_5b": {
+      "hf_id": "InstaDeepAI/nucleotide-transformer-2.5b-multi-species",
+      "local_dir": "assets/models/nucleotide-transformer-2.5b",
+      "type": "dna",
+      "priority": "explicit_large",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "very large DNA pLM control; download only when explicitly requested",
+      "name": "nucleotide_transformer_2_5b",
+      "group": "explicit_large",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\nucleotide-transformer-2.5b",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "jax_model/hyperparams.json",
+            "jax_model/pytree_ckpt.joblib",
+            "pytorch_model-00001-of-00002.bin",
+            "pytorch_model-00002-of-00002.bin",
+            "pytorch_model.bin.index.json",
+            "special_tokens_map.json",
+            "tf_model-00001-of-00002.h5",
+            "tf_model-00002-of-00002.h5",
+            "tf_model.h5.index.json",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 29869951187,
+      "size_gib": 27.8186,
+      "file_count": 30
+    }
+  }
+}

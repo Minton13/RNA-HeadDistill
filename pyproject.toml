@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rna-head-alignment"
+version = "0.1.0"
+description = "Functional attention heads are transferable units of RNA foundation models: head screening, teacher-head selection, and head-to-head attention-map alignment."
+requires-python = ">=3.10"
+dependencies = [
+  "torch",
+  "transformers",
+  "accelerate",
+  "huggingface_hub",
+  "safetensors",
+  "multimolecule",
+  "numpy",
+  "pandas",
+  "scipy",
+  "scikit-learn",
+  "pyyaml",
+  "tqdm",
+  "matplotlib",
+  "biopython",
+  "pytest",
+  "pyarrow",
+  "lmdb",
+]
+
+[project.optional-dependencies]
+server = ["tensorboard"]
+# Optional analysis/plotting helpers and the zarr cache-format backend
+# (scripts/local/*.py, systems/cache_formats.py; an npz fallback is used when
+# zarr is not installed).
+analysis = ["plotly", "seaborn", "zarr"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

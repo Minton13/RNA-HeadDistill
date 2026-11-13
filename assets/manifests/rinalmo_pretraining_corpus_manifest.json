@@ -1,0 +1,56 @@
+{
+  "source_name": "public_rnacentral_for_rinalmo_pretraining_staging",
+  "repo_id": "multimolecule/rnacentral",
+  "local_dir": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\data\\rinalmo_pretraining_corpus",
+  "status": "ok",
+  "attempts": [
+    {
+      "endpoint": "https://hf-mirror.com",
+      "status": "failed",
+      "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"
+    },
+    {
+      "endpoint": "https://huggingface.co",
+      "status": "failed",
+      "error": "LocalEntryNotFoundError('An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.')"
+    },
+    {
+      "method": "direct_resolve_url",
+      "status": "ok",
+      "files": [
+        {
+          "url": "https://hf-mirror.com/datasets/multimolecule/rnacentral/resolve/main/README.md",
+          "status": "ok",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\data\\rinalmo_pretraining_corpus\\README.md",
+          "size_bytes": 9031,
+          "elapsed_sec": 1.44,
+          "file": "README.md",
+          "endpoint": "https://hf-mirror.com"
+        },
+        {
+          "url": "https://hf-mirror.com/datasets/multimolecule/rnacentral/resolve/main/data.parquet",
+          "status": "ok",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\data\\rinalmo_pretraining_corpus\\data.parquet",
+          "size_bytes": 6333265454,
+          "elapsed_sec": 511.18,
+          "file": "data.parquet",
+          "endpoint": "https://hf-mirror.com"
+        },
+        {
+          "url": "https://hf-mirror.com/datasets/multimolecule/rnacentral/resolve/main/.gitattributes",
+          "status": "ok",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\data\\rinalmo_pretraining_corpus\\.gitattributes",
+          "size_bytes": 2307,
+          "elapsed_sec": 1.63,
+          "file": ".gitattributes",
+          "endpoint": "https://hf-mirror.com"
+        }
+      ]
+    }
+  ],
+  "size_bytes": 6333276988,
+  "size_gb": 5.898,
+  "file_count": 5,
+  "elapsed_sec": 517.28,
+  "notes": "RiNALMo model cards describe the original corpus as RNAcentral + Rfam + Ensembl + NCBI Nucleotide, 36M unique ncRNA. This staged public corpus is the MultiMolecule RNAcentral dataset used as the accessible local sequence source for attention alignment sampling."
+}

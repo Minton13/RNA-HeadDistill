@@ -1,0 +1,47 @@
+# Data Validation Report
+
+- overall_ok: `True`
+
+## secondary_structure_pair
+- ok: `True`
+- path: `assets\data\secondary\secondary_full.jsonl`
+- manifest_records: `26815`
+- sampled_rows: `1000`
+- sample_split_counts: `{'train': 800, 'test': 99, 'val': 101}`
+
+## chemical_reactivity_token
+- ok: `True`
+- path: `assets\data\ribonanza\hf_TerminatorJ_RNA_chemical_ribonanza\train_data_QUICK_START.csv`
+- sampled_rows: `1000`
+- columns_ok: `True`
+- sample_split_counts: `{}`
+- sample_label_counts: `{}`
+
+## rbp_binding_seqcls
+- ok: `True`
+- path: `assets\data\rbp_binding\rbp_binding_full.csv`
+- sampled_rows: `1000`
+- columns_ok: `True`
+- sample_split_counts: `{'train': 795, 'val': 99, 'test': 106}`
+- sample_label_counts: `{'0': 1000}`
+
+## splice_site_seqcls
+- ok: `True`
+- path: `assets\data\splice_site\splice_site_full.csv`
+- sampled_rows: `1000`
+- columns_ok: `True`
+- sample_split_counts: `{'train': 1000}`
+- sample_label_counts: `{'1': 778, '0': 222}`
+
+## ncRNA_family_seqcls
+- ok: `True`
+- path: `assets\data\rfam\rfam_mini.csv`
+- parquet_rows: `20051822`
+- parquet_columns: `['id', 'sequence', 'family', 'clan', 'description']`
+- label_map_path: `assets\data\rfam\rfam_family_label_map.csv`
+- num_classes: `4024`
+- sampled_rows: `1000`
+- columns_ok: `True`
+- sample_split_counts: `{'train': 815, 'val': 94, 'test': 91}`
+- sample_label_unique_count: `1000`
+- sample_label_counts_preview: `{'5': 1, '6': 1, '1863': 1, '1868': 1, '3995': 1, '1893': 1, '1865': 1, '529': 1, '1204': 1, '1202': 1}`

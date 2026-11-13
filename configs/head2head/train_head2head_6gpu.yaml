@@ -1,0 +1,42 @@
+# Stage 4B head-to-head full training: all slim shards, 6-GPU DDP via torchrun.
+# torchrun --nproc_per_node=6 scripts/head2head/train_head2head.py \
+#   --config configs/head2head/train_head2head_6gpu.yaml --run-name rinalmo_head2head_stage4b
+# Do NOT launch before: slim equivalence pass + gradient routing tests pass + medium beats baselines.
+run_name: rinalmo_head2head_stage4b
+output_dir: runs/head2head/rinalmo_head2head_stage4b
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+shards: all            # every slim shard under slim_cache_root
+val_fraction: 0.05     # deterministic shard-level split, seeded
+model:
+  adapter_dim: 96
+  adapter_ffn_mult: 2
+  train_backbone: true
+  activation_checkpointing: true
+training:
+  max_steps: 20000
+  batch_size: 2          # per GPU; sequences up to 512nt
+  grad_accum: 4
+  lr: 1.0e-4
+  weight_decay: 0.01
+  grad_clip: 1.0
+  precision: bf16
+  warmup_steps: 500
+  route_weights: {L6: 1.0, L8: 1.0, L12: 1.0}
+  loss_lambdas: {kl: 1.0, mse: 1.0, cos: 0.1}
+  log_every: 50
+  save_every: 1000
+  eval_every: 2000
+  grad_diagnostics_every: 500
+  nccl_timeout: 1800
+  resume: true
+runtime:
+  num_workers: 4          # per rank
+  lru_cache_size: 2
+  length_bucketed: true
+  ddp: true
+  seed: 42

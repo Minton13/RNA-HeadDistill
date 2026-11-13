@@ -1,0 +1,9 @@
+sequences: outputs/task_samples/rinalmo_pretrain_10pct_len_sorted.jsonl
+teacher_bank: configs/teacher_bank_selected.yaml
+output_dir: outputs/teacher_attention_cache/rinalmo_pretrain_10pct_selected_heads
+max_len: 512
+batch_size: 1
+shard_size: 2048
+device: auto
+precision: fp16
+resume: true

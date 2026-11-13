@@ -1,0 +1,38 @@
+# Demo screening/selection config: mirrors configs/screening_local_smoke.yaml
+# but points the layer banks at the two toy tasks.
+device: auto
+max_len: 96
+batch_size: 1
+limit: 64
+seed: 42
+heatmaps:
+  score_scale: normalized_0_1
+  vmin: 0.0
+  vmax: 1.0
+  cmap: viridis
+probe:
+  min_train_samples: 4
+  max_iter: 100
+  balanced_subset_per_class: 20
+pairwise:
+  min_separation: 3
+  threshold: 0.5
+  max_pairs_per_sample: 512
+selection:
+  per_model_per_task_top_k: 3
+  global_per_task_top_k: 6
+  global_per_layer_bank_top_k: 6
+  min_metric_quantile: 0.80
+  max_heads_per_model_per_task: 3
+  max_heads_per_source_layer_per_task: 2
+  prefer_model_diversity: true
+  prefer_layer_diversity: true
+layer_banks:
+  L6:
+    tasks:
+      - toy_family_seqcls
+    student_layer: 6
+  L12:
+    tasks:
+      - toy_secondary_structure_pair
+    student_layer: 12

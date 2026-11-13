@@ -1,0 +1,35 @@
+# Stage 4B head-to-head smoke training: 4 slim shards, 1 GPU, ~200 steps.
+# Run: PYTHONPATH=src python scripts/head2head/train_head2head.py --config configs/head2head/train_head2head_smoke.yaml
+run_name: head2head_smoke
+output_dir: runs/head2head/head2head_smoke
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+shards: [0, 516, 936, 1032]
+val_shards: [1032]
+model:
+  adapter_dim: 64
+  adapter_ffn_mult: 2
+  train_backbone: true
+training:
+  max_steps: 200
+  batch_size: 4
+  grad_accum: 1
+  lr: 1.0e-4
+  weight_decay: 0.01
+  grad_clip: 1.0
+  precision: bf16
+  route_weights: {L6: 1.0, L8: 1.0, L12: 1.0}
+  loss_lambdas: {kl: 1.0, mse: 1.0, cos: 0.1}
+  log_every: 10
+  save_every: 100
+  eval_every: 100
+  grad_diagnostics_every: 20
+runtime:
+  num_workers: 2
+  lru_cache_size: 2
+  length_bucketed: true
+  seed: 42

@@ -1,0 +1,8 @@
+{
+  "name": "mrnabert_taykhoom",
+  "hf_id": "Taykhoom/mRNABERT",
+  "local_dir": "assets/models/mrnabert-taykhoom",
+  "status": "ok",
+  "endpoint": "https://hf-mirror.com",
+  "local_size_gib": 0.4249
+}

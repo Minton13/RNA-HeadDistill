@@ -1,0 +1,11 @@
+# Stage 4B slim teacher cache — 4-shard smoke build.
+# Run: PYTHONPATH=src python scripts/head2head/02_build_slim_cache.py --config configs/head2head/slim_cache_smoke.yaml
+cache_root: outputs/teacher_attention_cache/rinalmo_pretrain_10pct_selected_heads
+bank: configs/teacher_bank_selected.yaml
+atlas: outputs/head_screening/all_head_atlas.csv
+manifest_dir: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests
+out_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+# early / middle / rinalmo_mega partial (32 seqs OOM-missing) / late
+shards: [0, 516, 936, 1032]
+strict: true
+report: outputs/teacher_attention_cache_slim/stage4b_head2head/reports/slim_cache_size_report.md

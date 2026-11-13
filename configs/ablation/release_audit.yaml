@@ -1,0 +1,11 @@
+run_dir: runs/head2head_full/rinalmo_head2head_stage4b_full
+best_checkpoint: checkpoints/best_val.pt
+latest_checkpoint: checkpoints/latest.pt
+eval_config: configs/head2head/eval_head2head_full.yaml
+grad_norms_file: grad_norms.csv
+resolved_config: config_resolved.yaml
+output_dir: outputs/alignment/stage4b_head2head/final_audit
+existing_best_eval_dir: outputs/alignment/stage4b_head2head/eval_full/rinalmo_head2head_stage4b_full/val
+latest_eval_subset_size: 2000
+splits:
+  val_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet

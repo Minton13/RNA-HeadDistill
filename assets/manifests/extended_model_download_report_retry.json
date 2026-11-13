@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-16T22:04:40",
+  "registry": "configs\\extended_models_offline.yaml",
+  "include_optional_server": false,
+  "include_explicit_large": false,
+  "models": {
+    "ernierna": {
+      "hf_id": "multimolecule/ernierna",
+      "local_dir": "assets/models/ernierna",
+      "type": "rna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "ERNIE-RNA MultiMolecule model; attention teacher candidate",
+      "name": "ernierna",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\ernierna",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "pytorch_model.bin",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 690292863,
+      "size_gib": 0.6429,
+      "file_count": 20
+    }
+  }
+}

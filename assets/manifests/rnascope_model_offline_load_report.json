@@ -1,0 +1,792 @@
+{
+  "generated_at": "2026-05-17T17:24:33",
+  "registry": "configs\\rnascope_models_offline.yaml",
+  "models": {
+    "rnabert": {
+      "hf_id": "multimolecule/rnabert",
+      "local_dir": "assets\\models\\rnabert",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "rnabert",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 2136893,
+      "size_gib": 0.002,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "RnaBertModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        120
+      ],
+      "attention_shape": [
+        1,
+        12,
+        17,
+        17
+      ],
+      "hidden_size": 120,
+      "num_layers": 6,
+      "num_heads": 12,
+      "error": null
+    },
+    "rnafm": {
+      "hf_id": "multimolecule/rnafm",
+      "local_dir": "assets\\models\\rnafm",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "rnafm",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 398188493,
+      "size_gib": 0.3708,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "RnaFmModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        640
+      ],
+      "attention_shape": [
+        1,
+        20,
+        17,
+        17
+      ],
+      "hidden_size": 640,
+      "num_layers": 12,
+      "num_heads": 20,
+      "error": null
+    },
+    "splicebert": {
+      "hf_id": "multimolecule/splicebert",
+      "local_dir": "assets\\models\\splicebert",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "splicebert",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 78964981,
+      "size_gib": 0.0735,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "SpliceBertModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        512
+      ],
+      "attention_shape": [
+        1,
+        16,
+        17,
+        17
+      ],
+      "hidden_size": 512,
+      "num_layers": 6,
+      "num_heads": 16,
+      "error": null
+    },
+    "rinalmo_micro": {
+      "hf_id": "multimolecule/rinalmo-micro",
+      "local_dir": "assets\\models\\rinalmo-micro",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "name": "rinalmo_micro",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 134029106,
+      "size_gib": 0.1248,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "RiNALMoModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        480
+      ],
+      "attention_shape": [
+        1,
+        20,
+        17,
+        17
+      ],
+      "hidden_size": 480,
+      "num_layers": 12,
+      "num_heads": 20,
+      "error": null
+    },
+    "utrbert_3mer": {
+      "hf_id": "multimolecule/utrbert-3mer",
+      "local_dir": "assets\\models\\utrbert-3mer",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "3UTRBERT representative; k-mer tokenizer",
+      "name": "utrbert_3mer",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 347039222,
+      "size_gib": 0.3232,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "UtrBertModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "3mer",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        51,
+        768
+      ],
+      "attention_shape": [
+        1,
+        12,
+        51,
+        51
+      ],
+      "hidden_size": 768,
+      "num_layers": 12,
+      "num_heads": 12,
+      "error": null
+    },
+    "utrlm_mrl": {
+      "hf_id": "multimolecule/utrlm-mrl",
+      "local_dir": "assets\\models\\utrlm-mrl",
+      "type": "rna",
+      "priority": "required",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "UTR-LM representative for MRL/5UTR tasks",
+      "name": "utrlm_mrl",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 4934543,
+      "size_gib": 0.0046,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "UtrLmModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        128
+      ],
+      "attention_shape": [
+        1,
+        16,
+        17,
+        17
+      ],
+      "hidden_size": 128,
+      "num_layers": 6,
+      "num_heads": 16,
+      "error": null
+    },
+    "dnabert2": {
+      "hf_id": "zhihan1996/DNABERT-2-117M",
+      "local_dir": "assets\\models\\dnabert2",
+      "type": "dna",
+      "priority": "required_control",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "DNA pLM control",
+      "name": "dnabert2",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 468630239,
+      "size_gib": 0.4364,
+      "file_count": 26,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": false,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "TokenizersBackend",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "BertForMaskedLM",
+        "loader": "AutoModelForMaskedLM+manual_state_dict",
+        "missing_keys": 0,
+        "unexpected_keys": 0,
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        6,
+        768
+      ],
+      "attention_shape": null,
+      "hidden_size": 768,
+      "num_layers": 12,
+      "num_heads": 12,
+      "error": null
+    },
+    "hyenadna_small": {
+      "hf_id": "multimolecule/hyenadna-small",
+      "local_dir": "assets\\models\\hyenadna-small",
+      "type": "dna",
+      "priority": "required_control",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "small HyenaDNA control",
+      "name": "hyenadna_small",
+      "group": "required_rnascope_small",
+      "exists": true,
+      "size_bytes": 6653778,
+      "size_gib": 0.0062,
+      "file_count": 20,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": false,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "DnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "HyenaDnaModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        256
+      ],
+      "attention_shape": null,
+      "hidden_size": 256,
+      "num_layers": 2,
+      "num_heads": null,
+      "error": null
+    },
+    "hyenadna_tiny": {
+      "hf_id": "multimolecule/hyenadna-tiny",
+      "local_dir": "assets\\models\\hyenadna-tiny",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "HyenaDNA tiny control",
+      "name": "hyenadna_tiny",
+      "group": "optional_server",
+      "exists": true,
+      "size_bytes": 1833750,
+      "size_gib": 0.0017,
+      "file_count": 20,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": false,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "DnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "HyenaDnaModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        128
+      ],
+      "attention_shape": null,
+      "hidden_size": 128,
+      "num_layers": 2,
+      "num_heads": null,
+      "error": null
+    },
+    "hyenadna_medium": {
+      "hf_id": "multimolecule/hyenadna-medium",
+      "local_dir": "assets\\models\\hyenadna-medium",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "HyenaDNA medium control",
+      "name": "hyenadna_medium",
+      "group": "optional_server",
+      "exists": true,
+      "size_bytes": 13206135,
+      "size_gib": 0.0123,
+      "file_count": 20,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": false,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "DnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "HyenaDnaModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        256
+      ],
+      "attention_shape": null,
+      "hidden_size": 256,
+      "num_layers": 4,
+      "num_heads": null,
+      "error": null
+    },
+    "hyenadna_large": {
+      "hf_id": "multimolecule/hyenadna-large",
+      "local_dir": "assets\\models\\hyenadna-large",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "HyenaDNA large control",
+      "name": "hyenadna_large",
+      "group": "optional_server",
+      "exists": true,
+      "size_bytes": 26310960,
+      "size_gib": 0.0245,
+      "file_count": 20,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": false,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "DnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "HyenaDnaModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        256
+      ],
+      "attention_shape": null,
+      "hidden_size": 256,
+      "num_layers": 8,
+      "num_heads": null,
+      "error": null
+    },
+    "nucleotide_transformer_v2_500m": {
+      "hf_id": "InstaDeepAI/nucleotide-transformer-v2-500m-multi-species",
+      "local_dir": "assets\\models\\nucleotide-transformer-v2-500m",
+      "type": "dna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "large DNA pLM control; download only if user requests or server staging mode enabled",
+      "name": "nucleotide_transformer_v2_500m",
+      "group": "optional_server",
+      "exists": true,
+      "size_bytes": 5972105979,
+      "size_gib": 5.562,
+      "file_count": 26,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "EsmTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "EsmForMaskedLM",
+        "loader": "AutoModelForMaskedLM+patched_config",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        6,
+        1024
+      ],
+      "attention_shape": [
+        1,
+        16,
+        6,
+        6
+      ],
+      "hidden_size": 1024,
+      "num_layers": 29,
+      "num_heads": 16,
+      "error": null
+    },
+    "rinalmo_mega": {
+      "hf_id": "multimolecule/rinalmo-mega",
+      "local_dir": "assets\\models\\rinalmo-mega",
+      "type": "rna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "server optional; do not download by default",
+      "name": "rinalmo_mega",
+      "group": "optional_server",
+      "exists": true,
+      "size_bytes": 592313436,
+      "size_gib": 0.5516,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": true,
+      "forward_ok": true,
+      "supports_hidden_states": true,
+      "supports_attentions": true,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model": {
+        "status": "ok",
+        "class": "RiNALMoModel",
+        "loader": "AutoModel",
+        "error": null
+      },
+      "tokenization": "raw",
+      "attention_requested": true,
+      "hidden_shape": [
+        1,
+        17,
+        640
+      ],
+      "attention_shape": [
+        1,
+        20,
+        17,
+        17
+      ],
+      "hidden_size": 640,
+      "num_layers": 30,
+      "num_heads": 20,
+      "error": null
+    },
+    "rinalmo_giga": {
+      "hf_id": "multimolecule/rinalmo-giga",
+      "local_dir": "assets\\models\\rinalmo-giga",
+      "type": "rna",
+      "priority": "explicit_large",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "largest RiNALMo staging target; download only when explicitly requested",
+      "name": "rinalmo_giga",
+      "group": "explicit_large",
+      "exists": true,
+      "size_bytes": 2603653247,
+      "size_gib": 2.4248,
+      "file_count": 18,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": null,
+      "forward_ok": null,
+      "supports_hidden_states": null,
+      "supports_attentions": null,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "RnaTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model_load_skipped": true,
+      "model_files_present": true
+    },
+    "nucleotide_transformer_2_5b": {
+      "hf_id": "InstaDeepAI/nucleotide-transformer-2.5b-multi-species",
+      "local_dir": "assets\\models\\nucleotide-transformer-2.5b",
+      "type": "dna",
+      "priority": "explicit_large",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "very large DNA pLM control; download only when explicitly requested",
+      "name": "nucleotide_transformer_2_5b",
+      "group": "explicit_large",
+      "exists": true,
+      "size_bytes": 29869951187,
+      "size_gib": 27.8186,
+      "file_count": 30,
+      "included_in_server_bundle": true,
+      "local_files_only_load_ok": true,
+      "tokenizer_load_ok": true,
+      "model_load_ok": null,
+      "forward_ok": null,
+      "supports_hidden_states": null,
+      "supports_attentions": null,
+      "multimolecule_import_ok": true,
+      "tokenizer": {
+        "status": "ok",
+        "class": "EsmTokenizer",
+        "kwargs": {
+          "trust_remote_code": true,
+          "local_files_only": true,
+          "use_fast": false
+        },
+        "error": null
+      },
+      "model_load_skipped": true,
+      "model_files_present": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Stage 4B evaluation: per-teacher-head identity metrics on val/test shards.
+# Run: PYTHONPATH=src python scripts/head2head/eval_head2head.py --config configs/head2head/eval_head2head.yaml --checkpoint <path>
+run_name: rinalmo_head2head_stage4b
+checkpoint: runs/head2head/rinalmo_head2head_stage4b/checkpoints/best_val.pt
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+splits:
+  val_shards: []        # same shard-level split as training run (loaded from run config if empty)
+  test_shards: []
+metrics: [mse, mae, rowwise_kl, cosine, pearson, spearman, top_l_overlap, top_2l_overlap]
+group_by: [task, route_depth, teacher_model, teacher_layer_head, length_bin]
+length_bins: [0, 64, 128, 256, 384, 512]
+baselines:
+  - native_head           # paired native student head, no adapter
+  - linear_projection     # paired native head + linear map
+  - random_student_head
+output_dir: outputs/alignment/stage4b_head2head/eval
+precision: bf16
+batch_size: 8

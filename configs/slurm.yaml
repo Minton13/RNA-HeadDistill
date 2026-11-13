@@ -1,0 +1,9 @@
+account: ""
+partition: ""
+time: "24:00:00"
+gres: "gpu:1"
+cpus_per_gpu: 8
+mem_per_gpu: "60G"
+server_env: "<SERVER_ENV_NAME>"
+pythonpath: "$PWD/src"
+logs_dir: logs

@@ -1,0 +1,362 @@
+{
+  "generated_at": "2026-06-16T22:05:33",
+  "registry": "configs\\extended_models_offline.yaml",
+  "include_optional_server": false,
+  "include_explicit_large": false,
+  "models": {
+    "rnaernie": {
+      "hf_id": "multimolecule/rnaernie",
+      "local_dir": "assets/models/rnaernie",
+      "type": "rna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "RNA-ERNIE MultiMolecule model; attention teacher candidate",
+      "name": "rnaernie",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\rnaernie",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 693441100,
+      "size_gib": 0.6458,
+      "file_count": 20
+    },
+    "ernierna": {
+      "hf_id": "multimolecule/ernierna",
+      "local_dir": "assets/models/ernierna",
+      "type": "rna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "ERNIE-RNA MultiMolecule model; attention teacher candidate",
+      "name": "ernierna",
+      "group": "required_rnascope_small",
+      "download_status": "skipped_existing",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "local",
+          "path": "assets\\models\\ernierna",
+          "method": "existing_local_files",
+          "error": null
+        }
+      ],
+      "size_bytes": 690292863,
+      "size_gib": 0.6429,
+      "file_count": 20
+    },
+    "rnamsm": {
+      "hf_id": "multimolecule/rnamsm",
+      "local_dir": "assets/models/rnamsm",
+      "type": "rna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "RNA-MSM MultiMolecule model; attention teacher candidate",
+      "name": "rnamsm",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\rnamsm",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "pytorch_model.bin",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 767630665,
+      "size_gib": 0.7149,
+      "file_count": 20
+    },
+    "caduceus_ps_1k_d118": {
+      "hf_id": "kuleshov-group/caduceus-ps_seqlen-1k_d_model-118_n_layer-4_lr-8e-3",
+      "local_dir": "assets/models/caduceus-ps-1k-d118",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "Caduceus DNA bidirectional long-context model; hidden/control candidate",
+      "name": "caduceus_ps_1k_d118",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\caduceus-ps-1k-d118",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "configuration_caduceus.py",
+            "model.safetensors",
+            "modeling_caduceus.py",
+            "modeling_rcps.py",
+            "special_tokens_map.json",
+            "tokenization_caduceus.py",
+            "tokenizer_config.json"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 1949085,
+      "size_gib": 0.0018,
+      "file_count": 22
+    },
+    "caduceus_ph_1k_d118": {
+      "hf_id": "kuleshov-group/caduceus-ph_seqlen-1k_d_model-118_n_layer-4_lr-8e-3",
+      "local_dir": "assets/models/caduceus-ph-1k-d118",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "Caduceus DNA reverse-complement equivariant candidate",
+      "name": "caduceus_ph_1k_d118",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\caduceus-ph-1k-d118",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "configuration_caduceus.py",
+            "model.safetensors",
+            "modeling_caduceus.py",
+            "modeling_rcps.py",
+            "special_tokens_map.json",
+            "tokenization_caduceus.py",
+            "tokenizer_config.json"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 1947992,
+      "size_gib": 0.0018,
+      "file_count": 22
+    },
+    "caduceus_ps_131k_d256": {
+      "hf_id": "kuleshov-group/caduceus-ps_seqlen-131k_d_model-256_n_layer-16",
+      "local_dir": "assets/models/caduceus-ps-131k-d256",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "Small-footprint Caduceus long-context checkpoint",
+      "name": "caduceus_ps_131k_d256",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\caduceus-ps-131k-d256",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "configuration_caduceus.py",
+            "model.safetensors",
+            "modeling_caduceus.py",
+            "modeling_rcps.py",
+            "special_tokens_map.json",
+            "tokenization_caduceus.py",
+            "tokenizer_config.json"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 30991951,
+      "size_gib": 0.0289,
+      "file_count": 22
+    },
+    "gena_lm_bert_base": {
+      "hf_id": "AIRI-Institute/gena-lm-bert-base",
+      "local_dir": "assets/models/gena-lm-bert-base",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "GENA-LM BERT-base DNA model; likely attention-capable",
+      "name": "gena_lm_bert_base",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\gena-lm-bert-base",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "modeling_bert.py",
+            "pytorch_model.bin",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 545137370,
+      "size_gib": 0.5077,
+      "file_count": 18
+    },
+    "gena_lm_bigbird_base_t2t": {
+      "hf_id": "AIRI-Institute/gena-lm-bigbird-base-t2t",
+      "local_dir": "assets/models/gena-lm-bigbird-base-t2t",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "GENA-LM BigBird DNA model; long-context hidden/control candidate",
+      "name": "gena_lm_bigbird_base_t2t",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\gena-lm-bigbird-base-t2t",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "pytorch_model.bin",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer_config.json"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 457575052,
+      "size_gib": 0.4261,
+      "file_count": 16
+    },
+    "carbon_500m": {
+      "hf_id": "HuggingFaceBio/Carbon-500M",
+      "local_dir": "assets/models/carbon-500m",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "Newer genomic foundation model; server/local capability test required",
+      "name": "carbon_500m",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\carbon-500m",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "added_tokens.json",
+            "config.json",
+            "dna_config.json",
+            "figures/carbon-500m-banner.png",
+            "generation_config.json",
+            "merges.txt",
+            "model.safetensors",
+            "special_tokens_map.json",
+            "tokenizer.json",
+            "tokenizer.py",
+            "tokenizer_config.json",
+            "vocab.json"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 1041014506,
+      "size_gib": 0.9695,
+      "file_count": 30
+    },
+    "evo2_1b_base": {
+      "hf_id": "arcinstitute/evo2_1b_base",
+      "local_dir": "assets/models/evo2-1b-base",
+      "type": "dna",
+      "priority": "required_extension",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "Evo2 1B base weights; not expected to load via vanilla AutoModel without Evo2 runtime",
+      "name": "evo2_1b_base",
+      "group": "required_rnascope_small",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\evo2-1b-base",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "evo2_1b_base.pt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 2698330549,
+      "size_gib": 2.513,
+      "file_count": 10
+    }
+  }
+}

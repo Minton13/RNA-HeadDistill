@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-16T22:18:01",
+  "registry": "configs\\extended_models_offline.yaml",
+  "include_optional_server": false,
+  "include_explicit_large": false,
+  "models": {
+    "ernierna_ss": {
+      "hf_id": "multimolecule/ernierna-ss",
+      "local_dir": "assets/models/ernierna-ss",
+      "type": "rna",
+      "priority": "server_optional",
+      "max_len_smoke": 128,
+      "max_len_server": 512,
+      "trust_remote_code": true,
+      "note": "ERNIE-RNA secondary-structure variant",
+      "name": "ernierna_ss",
+      "group": "optional_server",
+      "download_status": "ok",
+      "attempts": [
+        {
+          "status": "ok",
+          "endpoint": "https://hf-mirror.com",
+          "method": "hf_hub_download_filewise_then_snapshot_download",
+          "path": "D:\\code\\RNA_LLM_v2\\rna_circuit_distill\\assets\\models\\ernierna-ss",
+          "downloaded_files": [
+            ".gitattributes",
+            "README.md",
+            "config.json",
+            "license-faq.md",
+            "license.md",
+            "model.safetensors",
+            "pytorch_model.bin",
+            "tokenizer_config.json",
+            "vocab.txt"
+          ],
+          "filewise_error": null,
+          "snapshot_error": null,
+          "error": null
+        }
+      ],
+      "size_bytes": 695264487,
+      "size_gib": 0.6475,
+      "file_count": 20
+    }
+  }
+}

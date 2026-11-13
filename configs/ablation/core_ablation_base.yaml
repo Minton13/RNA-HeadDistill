@@ -1,0 +1,54 @@
+# Base configuration for core alignment ablations (A0-A8).
+#
+# This file is optional.  run_core_ablation.py reads experiment_registry.yaml
+# directly; pass this file with --base-config only if you want to override
+# shared paths or hyperparameters for a batch of experiments.
+
+# registry_path is advisory when passed as --base-config; the CLI default is
+# configs/ablation/experiment_registry.yaml.
+registry_path: configs/ablation/experiment_registry.yaml
+
+# Shared runtime overrides may be uncommented as needed.
+# runtime:
+#   max_len: 1024
+#   num_workers: 0
+#   lru_cache_size: 1
+
+# Shared model overrides.
+# model:
+#   adapter_dim: 96
+#   adapter_ffn_mult: 2
+
+# Shared optimizer overrides.
+# optimizer:
+#   fused: true
+
+# Shared training overrides.
+# training:
+#   precision: bf16
+#   grad_clip: 1.0
+
+# Evaluation artifacts (used by post-hoc summarization).
+metrics:
+  - mse
+  - mae
+  - rowwise_kl
+  - cosine
+  - pearson
+  - spearman
+  - top_l_overlap
+  - top_2l_overlap
+
+baselines:
+  - native_head
+  - linear_projection
+  - random_student_head
+
+group_by:
+  - task
+  - route_depth
+  - teacher_model
+  - teacher_layer_head
+  - length_bin
+
+length_bins: [0, 64, 128, 256, 384, 512]

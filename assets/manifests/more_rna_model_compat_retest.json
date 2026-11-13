@@ -1,0 +1,39 @@
+[
+  {
+    "model": "mp_rna",
+    "tokenizer_ok": true,
+    "model_load_ok": false,
+    "forward_ok": false,
+    "has_attentions": false,
+    "error": "RuntimeError(\"AutoModel{'attn_implementation': 'eager'}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'; AutoModel{}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'; AutoModelForMaskedLM{'attn_implementation': 'eager'}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'; AutoModelForMaskedLM{}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'\")",
+    "tokenizer_class": "EsmTokenizer",
+    "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 26, in <module>\nRuntimeError: AutoModel{'attn_implementation': 'eager'}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'; AutoModel{}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'; AutoModelForMaskedLM{'attn_implementation': 'eager'}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'; AutoModelForMaskedLM{}: AttributeError: 'OmniGenomeConfig' object has no attribute 'is_decoder'\n"
+  },
+  {
+    "model": "aido_rna_25m_mars",
+    "tokenizer_ok": false,
+    "model_load_ok": false,
+    "forward_ok": false,
+    "has_attentions": false,
+    "error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance to convert or \\n(3) an equivalent slow tokenizer class to instantiate and convert. \\nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\")",
+    "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 17, in <module>\n  File \"<conda-env>\\lib\\site-packages\\transformers\\models\\auto\\tokenization_auto.py\", line 837, in from_pretrained\n    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)\n  File \"<conda-env>\\lib\\site-packages\\transformers\\tokenization_utils_base.py\", line 1743, in from_pretrained\n    return cls._from_pretrained(\n  File \"<conda-env>\\lib\\site-packages\\transformers\\tokenization_utils_base.py\", line 1933, in _from_pretrained\n    tokenizer = cls(*init_inputs, **init_kwargs)\nValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+  },
+  {
+    "model": "aido_rna_300m_mars",
+    "tokenizer_ok": false,
+    "model_load_ok": false,
+    "forward_ok": false,
+    "has_attentions": false,
+    "error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance to convert or \\n(3) an equivalent slow tokenizer class to instantiate and convert. \\nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\")",
+    "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 17, in <module>\n  File \"<conda-env>\\lib\\site-packages\\transformers\\models\\auto\\tokenization_auto.py\", line 837, in from_pretrained\n    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)\n  File \"<conda-env>\\lib\\site-packages\\transformers\\tokenization_utils_base.py\", line 1743, in from_pretrained\n    return cls._from_pretrained(\n  File \"<conda-env>\\lib\\site-packages\\transformers\\tokenization_utils_base.py\", line 1933, in _from_pretrained\n    tokenizer = cls(*init_inputs, **init_kwargs)\nValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+  },
+  {
+    "model": "aido_rna_650m",
+    "tokenizer_ok": false,
+    "model_load_ok": false,
+    "forward_ok": false,
+    "has_attentions": false,
+    "error": "ValueError(\"Couldn't instantiate the backend tokenizer from one of: \\n(1) a `tokenizers` library serialization file, \\n(2) a slow tokenizer instance to convert or \\n(3) an equivalent slow tokenizer class to instantiate and convert. \\nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\")",
+    "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 17, in <module>\n  File \"<conda-env>\\lib\\site-packages\\transformers\\models\\auto\\tokenization_auto.py\", line 837, in from_pretrained\n    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)\n  File \"<conda-env>\\lib\\site-packages\\transformers\\tokenization_utils_base.py\", line 1743, in from_pretrained\n    return cls._from_pretrained(\n  File \"<conda-env>\\lib\\site-packages\\transformers\\tokenization_utils_base.py\", line 1933, in _from_pretrained\n    tokenizer = cls(*init_inputs, **init_kwargs)\nValueError: Couldn't instantiate the backend tokenizer from one of: \n(1) a `tokenizers` library serialization file, \n(2) a slow tokenizer instance to convert or \n(3) an equivalent slow tokenizer class to instantiate and convert. \nYou need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.\n"
+  }
+]

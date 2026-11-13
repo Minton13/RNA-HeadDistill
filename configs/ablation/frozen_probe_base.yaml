@@ -1,0 +1,18 @@
+# Base configuration for frozen downstream probe experiments (P0-P6).
+#
+# Optional: pass to scripts/ablation/run_frozen_probe.py with --config.
+
+runtime:
+  max_len: 512
+  batch_size: 32
+  num_workers: 0
+
+training:
+  max_epochs: 50
+  patience: 10
+  mixed_precision: false
+
+# Paths default to the Stage 4B registry and downstream_stage5 layout.
+# Uncomment to override:
+# data_dir: data/downstream_stage5
+# teacher_cache_dir: outputs/downstream_teacher_head_cache

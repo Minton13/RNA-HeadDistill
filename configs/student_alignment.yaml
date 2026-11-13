@@ -1,0 +1,29 @@
+student:
+  model: rinalmo_micro
+  selected_heads:
+    L6:
+      layer: 6
+      layer_index: 5
+      heads: [0, 1, 2, 3, 4]
+      n_heads: 5
+      dna_dedicated_fraction: 0.2
+    L8:
+      layer: 8
+      layer_index: 7
+      heads: [0, 1, 2, 3, 4]
+      n_heads: 5
+    L12:
+      layer: 12
+      layer_index: 11
+      heads: [0, 1, 2, 3, 4]
+      n_heads: 5
+training:
+  steps: 100
+  batch_size: 1
+  gradient_accumulation_steps: 1
+  lr: 1.0e-5
+  weight_decay: 0.01
+  precision: bf16
+  loss: mse
+  layer_restricted_gradients: false
+  note: "First implementation uses total L6+L8+L12 loss; exact layer-restricted gradients are TODO."

@@ -1,0 +1,308 @@
+models:
+  rnabert:
+    type: RNA
+    local_dir: assets/models/rnabert
+    attention_teacher: true
+    optional: false
+    large: false
+
+  rnafm:
+    type: RNA
+    local_dir: assets/models/rnafm
+    attention_teacher: true
+    optional: false
+    large: false
+
+  mrnafm:
+    type: RNA
+    local_dir: assets/models/mrnafm
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "mRNA-FM MultiMolecule checkpoint; clean head extraction OK, 12 layers x 20 heads."
+
+  plantrna_fm:
+    type: RNA
+    local_dir: assets/models/plantrna-fm
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "PlantRNA-FM; local config patched hidden_dropout_prob 0 -> 0.0; clean head extraction OK, 12 layers x 20 heads."
+
+  splicebert:
+    type: RNA
+    local_dir: assets/models/splicebert
+    attention_teacher: true
+    optional: false
+    large: false
+
+  rinalmo_micro:
+    type: RNA
+    local_dir: assets/models/rinalmo-micro
+    attention_teacher: true
+    student: true
+    optional: false
+    large: false
+
+  utrbert_3mer:
+    type: RNA
+    local_dir: assets/models/utrbert-3mer
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "3UTRBERT representative; k-mer tokenizer"
+
+  utrbert_4mer:
+    type: RNA
+    local_dir: assets/models/utrbert-4mer
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "3UTRBERT 4-mer; old-project head extraction OK, 12 layers x 12 heads."
+
+  utrbert_5mer:
+    type: RNA
+    local_dir: assets/models/utrbert-5mer
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "3UTRBERT 5-mer; old-project head extraction OK, 12 layers x 12 heads."
+
+  utrbert_6mer:
+    type: RNA
+    local_dir: assets/models/utrbert-6mer
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "3UTRBERT 6-mer; old-project head extraction OK, 12 layers x 12 heads."
+
+  utrlm_mrl:
+    type: RNA
+    local_dir: assets/models/utrlm-mrl
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "UTR-LM representative"
+
+  utrlm_te_el:
+    type: RNA
+    local_dir: assets/models/utrlm-te-el
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "UTR-LM TE/EL; old-project head extraction OK, 6 layers x 16 heads."
+
+  rnafm_ss:
+    type: RNA
+    local_dir: assets/models/rnafm-ss
+    attention_teacher: false
+    hidden_control: false
+    optional: true
+    large: false
+    note: "Weights staged, but current runtime fails with vocab_size 28 vs 26; not a teacher until wrapper is fixed."
+
+  rnaernie:
+    type: RNA
+    local_dir: assets/models/rnaernie
+    attention_teacher: true
+    optional: false
+    large: false
+    note: "Downloaded extension; forward-smoke attention OK."
+
+  rnamsm:
+    type: RNA
+    local_dir: assets/models/rnamsm
+    attention_teacher: false
+    hidden_control: true
+    optional: false
+    large: false
+    note: "Downloaded extension; forward-smoke hidden OK, attentions absent for single sequence."
+
+  rinalmo_mega:
+    type: RNA
+    local_dir: assets/models/rinalmo-mega
+    attention_teacher: true
+    optional: true
+    large: true
+
+  rinalmo_giga:
+    type: RNA
+    local_dir: assets/models/rinalmo-giga
+    attention_teacher: true
+    optional: true
+    large: true
+
+  nucleotide_transformer_v2_500m:
+    type: DNA
+    local_dir: assets/models/nucleotide-transformer-v2-500m
+    attention_teacher: true
+    optional: true
+    large: false
+
+  nucleotide_transformer_2_5b:
+    type: DNA
+    local_dir: assets/models/nucleotide-transformer-2.5b
+    attention_teacher: true
+    optional: true
+    large: true
+
+  hyenadna_small:
+    type: DNA
+    local_dir: assets/models/hyenadna-small
+    attention_teacher: false
+    hidden_control: true
+    optional: false
+    large: false
+
+  gena_lm_bert_base:
+    type: DNA
+    local_dir: assets/models/gena-lm-bert-base
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "Downloaded extension; AutoModelForMaskedLM forward-smoke attention OK with eager attention."
+
+  gena_lm_bert_base_t2t:
+    type: DNA
+    local_dir: assets/models/gena-lm-bert-base-t2t
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "GENA-LM BERT base t2t; head extraction OK, 12 layers x 12 heads."
+
+  gena_lm_bert_base_lastln_t2t:
+    type: DNA
+    local_dir: assets/models/gena-lm-bert-base-lastln-t2t
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "GENA-LM BERT base last-ln t2t; head extraction OK, 12 layers x 12 heads."
+
+  gena_lm_bert_base_t2t_multi:
+    type: DNA
+    local_dir: assets/models/gena-lm-bert-base-t2t-multi
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "GENA-LM BERT base t2t multi; head extraction OK, 12 layers x 12 heads."
+
+  gena_lm_bigbird_base_t2t:
+    type: DNA
+    local_dir: assets/models/gena-lm-bigbird-base-t2t
+    attention_teacher: false
+    hidden_control: true
+    optional: false
+    large: false
+    note: "Downloaded extension; hidden OK but attentions absent in smoke."
+
+  gena_lm_bigbird_base_sparse:
+    type: DNA
+    local_dir: assets/models/gena-lm-bigbird-base-sparse
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "GENA-LM BigBird sparse; head extraction OK in old project, 12 layers x 12 heads."
+
+  moderngena_base:
+    type: DNA
+    local_dir: assets/models/moderngena-base
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "ModernGENA base; transformers eager path returns attention in old-project test."
+
+  carbon_500m:
+    type: DNA
+    local_dir: assets/models/carbon-500m
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "Downloaded extension; Carbon tokenizer patched for offline Qwen tokenizer; attention OK."
+
+  nucleotide_transformer_v2_50m:
+    type: DNA
+    local_dir: assets/models/nucleotide-transformer-v2-50m
+    attention_teacher: true
+    hidden_control: true
+    optional: true
+    large: false
+    note: "Nucleotide Transformer v2 50M; local remote-code compatibility patched for transformers runtime; head extraction OK, 12 layers x 16 heads."
+
+  nucleotide_transformer_v2_50m_3mer:
+    type: DNA
+    local_dir: assets/models/nucleotide-transformer-v2-50m-3mer
+    attention_teacher: true
+    hidden_control: true
+    optional: true
+    large: false
+    note: "Nucleotide Transformer v2 50M 3-mer; local remote-code compatibility patched for transformers runtime; head extraction OK, 12 layers x 16 heads."
+
+  dnabert_6:
+    type: DNA
+    local_dir: assets/models/dnabert-6mer
+    attention_teacher: true
+    hidden_control: true
+    optional: false
+    large: false
+    note: "Only retained DNABERT family representative; DNABERT v1 6-mer head extraction OK, 12 layers x 12 heads."
+
+  mrnabert_yyly66:
+    type: RNA
+    local_dir: assets/models/mrnabert-yyly66
+    attention_teacher: false
+    hidden_control: false
+    optional: true
+    large: false
+    note: "Weights staged, but current Windows runtime fails with meta tensor/config compatibility error."
+
+  mrnabert_taykhoom:
+    type: RNA
+    local_dir: assets/models/mrnabert-taykhoom
+    attention_teacher: false
+    hidden_control: false
+    optional: true
+    large: false
+    note: "Tokenizer loads offline, but model cannot load via AutoModel in offline runtime; not a teacher."
+
+  caduceus_ps_1k_d118:
+    type: DNA
+    local_dir: assets/models/caduceus-ps-1k-d118
+    attention_teacher: false
+    hidden_control: true
+    optional: true
+    large: false
+    note: "Weights staged; requires mamba_ssm runtime, not loaded in Windows smoke."
+
+  caduceus_ph_1k_d118:
+    type: DNA
+    local_dir: assets/models/caduceus-ph-1k-d118
+    attention_teacher: false
+    hidden_control: true
+    optional: true
+    large: false
+    note: "Weights staged; requires mamba_ssm runtime, not loaded in Windows smoke."
+
+  caduceus_ps_131k_d256:
+    type: DNA
+    local_dir: assets/models/caduceus-ps-131k-d256
+    attention_teacher: false
+    hidden_control: true
+    optional: true
+    large: false
+    note: "Weights staged; requires mamba_ssm runtime, not loaded in Windows smoke."
+
+  evo2_1b_base:
+    type: DNA
+    local_dir: assets/models/evo2-1b-base
+    attention_teacher: false
+    hidden_control: false
+    optional: true
+    large: false
+    note: "Weights staged; requires Evo2/Savanna runtime, not an AutoModel attention teacher."

@@ -1,0 +1,23 @@
+corpus:
+  # Put the real RiNALMo pretraining corpus here on the server, or pass
+  # --corpus explicitly to the CLI. Supported input: FASTA/FASTA.GZ,
+  # JSONL/JSONL.GZ, CSV/TSV, or Parquet.
+  path: assets/data/rinalmo_pretraining_corpus
+  sequence_column: sequence
+  output: outputs/task_samples/rinalmo_pretrain_10pct.jsonl
+  sorted_output: outputs/task_samples/rinalmo_pretrain_10pct_len_sorted.jsonl
+  fraction: 0.10
+  min_len: 32
+  max_len: 512
+  deduplicate: true
+  seed: 42
+
+cache:
+  teacher_bank: configs/teacher_bank_selected.yaml
+  sequences: outputs/task_samples/rinalmo_pretrain_10pct_len_sorted.jsonl
+  output: outputs/teacher_attention_cache/rinalmo_pretrain_10pct_selected_heads
+  max_len: 512
+  shard_size: 2048
+  dtype: fp16
+  device: cuda
+  resume: true

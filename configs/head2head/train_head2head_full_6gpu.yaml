@@ -1,0 +1,79 @@
+# Stage 4B head-to-head full training using the bucketed full slim cache.
+# 6-GPU DDP via torchrun.
+#
+#   torchrun --standalone --nproc_per_node=6 scripts/head2head/train_head2head.py \
+#       --config configs/head2head/train_head2head_full_6gpu.yaml \
+#       --run-name rinalmo_head2head_stage4b_full
+#
+# Do NOT launch before the full slim cache merge + split are complete.
+run_name: rinalmo_head2head_stage4b_full
+output_dir: runs/head2head_full/rinalmo_head2head_stage4b_full
+cache_format: full
+
+full_slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head/full
+sequence_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/sequence_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+
+train_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+val_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet
+test_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/test.parquet
+
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+
+model:
+  adapter_dim: 96
+  adapter_ffn_mult: 2
+  train_backbone: true
+  activation_checkpointing: false
+  find_unused_parameters: true
+
+optimizer:
+  lr: 1.0e-4
+  weight_decay: 0.01
+  backbone_lr: 5.0e-5
+  adapter_lr: 1.0e-3
+  backbone_weight_decay: 0.01
+  adapter_weight_decay: 0.0
+  fused: true
+
+scheduler:
+  warmup_steps: 500
+  min_lr_ratio: 0.01
+
+training:
+  max_steps: 20000
+  grad_accum: 4
+  grad_clip: 1.0
+  precision: bf16
+  resume: true
+  route_weights: {L6: 1.0, L8: 1.0, L12: 1.0}
+  loss_lambdas: {kl: 1.0, mse: 1.0, cos: 0.1}
+  normalize_within_route_by_head_count: true
+  log_every: 50
+  save_every: 1000
+  # Disabled training-time evaluation after repeated hangs at eval boundaries.
+  # Full val/test evaluation is performed by the separate eval job after training.
+  eval_every: 999999
+  grad_diagnostics_every: 500
+  nccl_timeout: 1800
+  baselines: []
+  oom_budget_decay: 0.8
+  oom_min_budget: 4096
+
+runtime:
+  seed: 42
+  max_len: 1024
+  num_workers: 0
+  # Raised from 1 to 2 after a 12-min I/O stall at step ~1950.  With 6 ranks the
+  # extra bucket held in memory costs ~16 GB per rank worst-case, still inside
+  # n2's 360 GB host memory.
+  lru_cache_size: 2
+  ddp: true
+
+dynamic_batch:
+  max_sequences_per_batch: 4
+  max_pair_tokens: 524288
+  bucket_size_samples: 1000

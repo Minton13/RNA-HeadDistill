@@ -1,0 +1,47 @@
+# Smoke: small-student MLM pretraining, 1 GPU, 200 steps.
+run_name: small_s0_mlm_smoke
+output_dir: runs/small_student
+
+student:
+  model_dir: assets/models/rinalmo-micro
+  config_overrides:
+    hidden_size: 256
+    num_attention_heads: 8
+    num_hidden_layers: 12
+    intermediate_size: 1024
+    attention_dropout: 0.1
+    hidden_dropout: 0.1
+    token_dropout: true
+
+train_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+val_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet
+
+optimizer:
+  lr: 5.0e-4
+  weight_decay: 0.01
+  fused: true
+
+scheduler:
+  warmup_steps: 50
+  min_lr_ratio: 0.05
+
+training:
+  max_steps: 200
+  precision: bf16
+  resume: false
+  mlm_prob: 0.15
+  grad_clip: 1.0
+  log_every: 10
+  save_every: 100
+  eval_every: 100
+  eval_batches: 5
+
+runtime:
+  seed: 42
+  max_len: 1024
+  num_workers: 0
+
+dynamic_batch:
+  max_sequences_per_batch: 32
+  max_pair_tokens: 4194304
+  bucket_size_samples: 3200

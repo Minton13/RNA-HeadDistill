@@ -1,0 +1,39 @@
+# Bytecode / test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+
+# Hugging Face caches
+.hf_cache/
+hf_cache/
+
+# Large local artifacts (models, data, caches, runs)
+assets/models/
+assets/data/
+/cache/
+outputs/
+runs/
+logs/
+data/demo/
+data/downstream_stage5/
+
+# Model weights / tensors
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.npy
+*.npz
+*.zarr/
+*.lmdb/
+
+# Slurm
+slurm-*.out
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp

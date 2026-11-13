@@ -1,0 +1,280 @@
+project_root: .
+release_checkpoint: runs/head2head_full/rinalmo_head2head_stage4b_full/checkpoints/stage4b_release.pt
+full_checkpoint_best: runs/head2head_full/rinalmo_head2head_stage4b_full/checkpoints/best_val.pt
+full_checkpoint_latest: runs/head2head_full/rinalmo_head2head_stage4b_full/checkpoints/latest.pt
+vanilla_checkpoint: ''
+base_data:
+  slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head/full
+  sequence_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/sequence_manifest.parquet
+  train_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+  val_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet
+  test_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/test.parquet
+  target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+  head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+seeds:
+- 17
+- 41
+- 89
+base_training:
+  student: rinalmo_micro
+  local_files_only: true
+  max_steps: 20000
+  eval_every: 1000
+  save_every: 2000
+  log_every: 20
+  backbone_lr: 2.0e-05
+  adapter_lr: 0.0003
+  backbone_weight_decay: 0.01
+  adapter_weight_decay: 0.0001
+  grad_clip: 1.0
+  scheduler: cosine
+  warmup_steps: 1000
+  min_lr_ratio: 0.05
+  dtype: bf16
+  activation_checkpointing: true
+  early_stop_metric: val_macro_head_loss
+  early_stop_mode: min
+  early_stop_patience_evals: 6
+  keep_last_n_checkpoints: 3
+  keep_best_checkpoint: true
+  loss:
+    kl_weight: 1.0
+    mse_weight: 1.0
+    cosine_weight: 0.1
+    route_weights:
+      L6: 1.0
+      L8: 1.0
+      L12: 1.0
+    normalize_within_route_by_head_count: true
+  dynamic_batch:
+    max_pair_tokens: 524288
+    max_sequences_per_batch: 8
+    gradient_accumulation_steps: 4
+experiments:
+  A0_vanilla:
+    scientific_question: What is the downstream probe baseline without any alignment
+      training?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: []
+    teacher_aggregation_policy: none
+    student_pairing_policy: none
+    adapter_type: none
+    route_policy: none
+    backbone_trainability: frozen
+    loss_config: none
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 0
+    gpu_count: 0
+    output_root: outputs/ablation/alignment/A0_vanilla
+  A1_single_teacher_top1:
+    scientific_question: Does a single best teacher head per route suffice?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: top1_per_route
+    teacher_aggregation_policy: identity
+    student_pairing_policy: data_driven
+    adapter_type: transformer
+    route_policy: route_specific
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A1_single_teacher_top1
+  A2_head2head_top3:
+    scientific_question: Does top-3 head per route capture most alignment benefit?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: top3_per_route
+    teacher_aggregation_policy: identity
+    student_pairing_policy: data_driven
+    adapter_type: transformer
+    route_policy: route_specific
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A2_head2head_top3
+  A3_head2head_top5_full:
+    scientific_question: 'COLD-START control: A3 config trained from vanilla init
+      (publication fix for warm-start confound)'
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: all
+    teacher_aggregation_policy: identity
+    student_pairing_policy: data_driven
+    adapter_type: transformer
+    route_policy: route_specific
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A3_head2head_top5_coldstart
+  A4_consensus_top5:
+    scientific_question: Does preserving teacher-head identity outperform route-wise
+      consensus?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: all
+    teacher_aggregation_policy: route_consensus
+    student_pairing_policy: none
+    adapter_type: transformer
+    route_policy: route_specific
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A4_consensus_top5
+  A5_random_pairing:
+    scientific_question: Does data-driven head pairing outperform random pairing?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: all
+    teacher_aggregation_policy: identity
+    student_pairing_policy: random
+    adapter_type: transformer
+    route_policy: route_specific
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A5_random_pairing
+  A6_linear_adapter:
+    scientific_question: Does a Transformer adapter outperform a linear adapter?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: all
+    teacher_aggregation_policy: identity
+    student_pairing_policy: data_driven
+    adapter_type: linear
+    route_policy: route_specific
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A6_linear_adapter
+  A7_all_from_L12:
+    scientific_question: Does hierarchical L6/L8/L12 routing outperform all-from-L12?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: all
+    teacher_aggregation_policy: identity
+    student_pairing_policy: data_driven
+    adapter_type: transformer
+    route_policy: all_from_L12
+    backbone_trainability: full
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A7_all_from_L12
+  A8_adapters_only:
+    scientific_question: Is backbone updating necessary, or are adapters sufficient?
+    category: core_ablation
+    initialization_checkpoint: ''
+    dataset_fraction: 1.0
+    teacher_head_subset: all
+    teacher_aggregation_policy: identity
+    student_pairing_policy: data_driven
+    adapter_type: transformer
+    route_policy: route_specific
+    backbone_trainability: frozen
+    loss_config: default
+    seeds:
+    - 17
+    - 41
+    - 89
+    max_steps: 20000
+    gpu_count: 1
+    output_root: outputs/ablation/alignment/A8_adapters_only
+  data_scaling:
+    scientific_question: How does alignment performance scale with training data size?
+    category: supplementary
+    sizes:
+    - 100000
+    - 500000
+    - 2114289
+    base_experiment: A3_head2head_top5_full
+    seeds:
+    - 17
+    - 41
+    - 89
+  loss_ablation:
+    scientific_question: Which loss combination yields the best alignment?
+    category: supplementary
+    variants:
+    - kl_only:
+        kl: 1.0
+        mse: 0.0
+        cosine: 0.0
+    - mse_only:
+        kl: 0.0
+        mse: 1.0
+        cosine: 0.0
+    - kl_mse:
+        kl: 1.0
+        mse: 1.0
+        cosine: 0.0
+    - kl_mse_cos:
+        kl: 1.0
+        mse: 1.0
+        cosine: 0.1
+    base_experiment: A3_head2head_top5_full
+    seeds:
+    - 17
+  teacher_count_ablation:
+    scientific_question: How many teacher heads per route are sufficient?
+    category: supplementary
+    counts:
+    - 1
+    - 3
+    - 5
+    base_experiment: A3_head2head_top5_full
+    seeds:
+    - 17
+  pairing_stability:
+    scientific_question: How stable is the data-driven head pairing across bootstrap
+      subsets?
+    category: supplementary
+    n_bootstrap: 5
+    shards_per_bootstrap: 16
+    seeds:
+    - 17

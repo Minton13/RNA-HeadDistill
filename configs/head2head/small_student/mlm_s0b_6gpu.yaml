@@ -1,0 +1,54 @@
+# S0 arm: from-scratch small RiNALMo student, MLM-only pretraining.
+# 6-GPU DDP via torchrun. Split into two chained jobs (S0a: 0-20k, S0b: 20k-40k)
+# so head-pair search can start from the S0a step_20000 checkpoint.
+#
+#   torchrun --standalone --nproc_per_node=6 scripts/head2head/train_small_mlm.py \
+#       --config configs/head2head/small_student/mlm_s0a_6gpu.yaml
+run_name: small_s0_mlm
+output_dir: runs/small_student
+
+student:
+  model_dir: assets/models/rinalmo-micro   # tokenizer + base config source
+  config_overrides:
+    hidden_size: 256
+    num_attention_heads: 8
+    num_hidden_layers: 12
+    intermediate_size: 1024
+    attention_dropout: 0.1
+    hidden_dropout: 0.1
+    token_dropout: true
+
+train_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+val_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet
+
+optimizer:
+  lr: 5.0e-4
+  weight_decay: 0.01
+  fused: true
+
+scheduler:
+  warmup_steps: 2000
+  min_lr_ratio: 0.05
+
+training:
+  max_steps: 40000          # S0b: resumed from S0a latest.pt
+  precision: bf16
+  resume: true
+  mlm_prob: 0.15
+  grad_clip: 1.0
+  log_every: 50
+  save_every: 2000
+  eval_every: 2000
+  eval_batches: 50
+  nccl_timeout: 1800
+
+runtime:
+  seed: 42
+  max_len: 1024
+  num_workers: 4
+  ddp: true
+
+dynamic_batch:
+  max_sequences_per_batch: 64
+  max_pair_tokens: 4194304   # 16 * 512^2; MLM cost is O(L), this bounds sum L^2
+  bucket_size_samples: 6400

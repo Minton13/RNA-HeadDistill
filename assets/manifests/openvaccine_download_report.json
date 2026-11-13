@@ -1,0 +1,38 @@
+{
+  "dataset": "OpenVaccine / stanford-covid-vaccine",
+  "kaggle_api_files_list_ok": true,
+  "kaggle_download_ok": false,
+  "kaggle_error": "403 Forbidden for competition download and per-file download; likely competition rule acceptance/account permission on Kaggle side.",
+  "fallback_source": "https://github.com/DasLab/KaggleOpenVaccine/archive/refs/heads/master.zip",
+  "fallback_download_ok": true,
+  "train_json": "D:\\code\\RNA_LLM_v2\\rna_head_alignment\\assets\\data\\openvaccine\\train.json",
+  "test_json": "D:\\code\\RNA_LLM_v2\\rna_head_alignment\\assets\\data\\openvaccine\\test.json",
+  "train_records": 1589,
+  "test_records": 3634,
+  "files": [
+    {
+      "name": "nullrecurrent_predictions_Kaggle_test_set.json.zip",
+      "size_bytes": 9513447
+    },
+    {
+      "name": "reshaped_test_data.json.zip",
+      "size_bytes": 14203604
+    },
+    {
+      "name": "test.json",
+      "size_bytes": 14203604
+    },
+    {
+      "name": "test.json.zip",
+      "size_bytes": 2622189
+    },
+    {
+      "name": "train.csv",
+      "size_bytes": 16107094
+    },
+    {
+      "name": "train.json",
+      "size_bytes": 10260945
+    }
+  ]
+}

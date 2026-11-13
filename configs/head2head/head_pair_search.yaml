@@ -1,0 +1,20 @@
+# Stage 4B head-pair search: match native RiNALMo student heads to teacher heads
+# on 4-16 slim shards before fixing head_pair_manifest.parquet.
+# Run on GPU node via scripts/server/head2head_pair_search.sbatch.
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+seed_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+out_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+route_depths: [6, 8, 12]
+# 4-16 shards spread over the length-sorted cache
+shards: [0, 1, 2, 3, 516, 517, 936, 1032]
+max_samples_per_shard: 256
+candidate_student_heads: all   # all 20 native heads at each route layer
+metrics: [mse, cosine, pearson, spearman]
+pairing: bipartite             # maximum-weight bipartite matching per route; fallback top1
+precision: bf16
+batch_size: 8
+max_len: 512

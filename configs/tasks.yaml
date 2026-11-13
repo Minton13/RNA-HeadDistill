@@ -1,0 +1,131 @@
+tasks:
+  splice_site_seqcls:
+    group: L6
+    task_type: sequence_classification
+    path: assets/data/splice_site/splice_site_full.csv
+    metric: auroc
+    max_len: 512
+
+  rbp_binding_seqcls:
+    group: L6
+    task_type: sequence_classification
+    path: assets/data/rbp_binding/rbp_binding_full.csv
+    metric: auroc
+
+  ncRNA_family_seqcls:
+    group: L6
+    task_type: sequence_classification
+    path: assets/data/rfam/rfam_mini.csv
+    metric: macro_f1
+    source: Rfam balanced mini subset for screening smoke
+
+  mrna_stability_cds_bart_regression:
+    group: L6
+    task_type: sequence_regression
+    path: assets/data/mrna_stability/hf_mogam_ai_cds_bart_mrna_stability/data
+    sequence_column: seq
+    target_column: y
+    metric: pearson
+    source: mogam-ai/CDS-BART-mRNA-stability
+
+  mrna_stability_gleghorn_regression:
+    group: L6
+    task_type: sequence_regression
+    path: assets/data/mrna_stability/hf_gleghornlab_mrna_stability_other/data
+    sequence_column: rna
+    target_column: labels
+    metric: pearson
+    source: GleghornLab/mrna_stability_other
+
+  mrna_ribosome_loading_regression:
+    group: L6
+    task_type: sequence_regression
+    path: assets/data/rnascope_kaggle/extracted/3. Function Tasks/mRNA Tasks/(3) Ribosome Loading Prediction/Ribosome-Loading.json
+    sequence_column: sequence
+    target_column: mrl
+    metric: pearson
+    source: RNAscope Kaggle mRNA Ribosome Loading
+
+  chemical_reactivity_token:
+    group: L8
+    task_type: token_regression
+    path: assets/data/ribonanza/hf_TerminatorJ_RNA_chemical_ribonanza/train_data_QUICK_START.csv
+    token_value_prefix: reactivity_
+    metric: pearson
+
+  chemical_reactivity_ribonanza_2a3:
+    group: L8
+    task_type: token_regression
+    path: assets/data/ribonanza/hf_TerminatorJ_RNA_chemical_ribonanza/train_data_QUICK_START.csv
+    token_value_prefix: reactivity_
+    filters:
+      experiment_type: 2A3_MaP
+    metric: pearson
+    source: Ribonanza 2A3-MaP
+
+  chemical_reactivity_ribonanza_dms:
+    group: L8
+    task_type: token_regression
+    path: assets/data/ribonanza/hf_TerminatorJ_RNA_chemical_ribonanza/train_data_QUICK_START.csv
+    token_value_prefix: reactivity_
+    filters:
+      experiment_type: DMS_MaP
+    metric: pearson
+    source: Ribonanza DMS-MaP
+
+  chemical_reactivity_rnascope:
+    group: L8
+    task_type: token_regression
+    path: assets/data/rnascope_kaggle/extracted/1. Structure Tasks/(2) Chemical Reactivity Prediction/chemical_Reactivity.json
+    sequence_column: sequence
+    target_column: reactivity
+    metric: pearson
+    source: RNAscope Kaggle Chemical Reactivity Prediction
+
+  openvaccine_reactivity_token:
+    group: L8
+    task_type: token_regression
+    enabled: true
+    path: assets/data/openvaccine/train.json
+    sequence_column: sequence
+    target_column: reactivity
+    metric: pearson
+    source: Kaggle OpenVaccine COVID-19 mRNA Vaccine Degradation Prediction
+
+  openvaccine_deg_mg_ph10_token:
+    group: L8
+    task_type: token_regression
+    enabled: true
+    path: assets/data/openvaccine/train.json
+    sequence_column: sequence
+    target_column: deg_Mg_pH10
+    metric: pearson
+    source: Kaggle OpenVaccine COVID-19 mRNA Vaccine Degradation Prediction
+
+  openvaccine_deg_mg_50c_token:
+    group: L8
+    task_type: token_regression
+    enabled: true
+    path: assets/data/openvaccine/train.json
+    sequence_column: sequence
+    target_column: deg_Mg_50C
+    metric: pearson
+    source: Kaggle OpenVaccine COVID-19 mRNA Vaccine Degradation Prediction
+
+  secondary_structure_pair:
+    group: L12
+    task_type: pairwise
+    path: assets/data/secondary/secondary_full.jsonl
+    metric: auprc
+
+  rna3d_rnaglib:
+    group: L12
+    task_type: rna3d_contact
+    path: assets/data/rna3d/hf_luiswyss_rnaglib/huggingface_rna_cm/dataset
+    metric: auprc
+
+  rnascope_contact_map:
+    group: L12
+    task_type: rna3d_contact
+    path: assets/data/rnascope_kaggle/extracted/1. Structure Tasks/(3) Contact Map Prediction
+    metric: auprc

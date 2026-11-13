@@ -1,0 +1,28 @@
+# Head-pair search for the from-scratch small student.
+# Uses the S0a (20k-step MLM) checkpoint's native heads; runs after S0a.
+# Run on GPU node via scripts/server/small_pair_search.sbatch.
+student:
+  model_dir: assets/models/rinalmo-micro
+  config_overrides:
+    hidden_size: 256
+    num_attention_heads: 8
+    num_hidden_layers: 12
+    intermediate_size: 1024
+    attention_dropout: 0.1
+    hidden_dropout: 0.1
+    token_dropout: true
+  init_checkpoint: runs/small_student/small_s0_mlm/checkpoints/step_20000.pt
+slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+seed_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+out_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest_small.parquet
+route_depths: [6, 8, 12]
+shards: [0, 1, 2, 3, 516, 517, 936, 1032, 100, 200, 300, 400, 600, 700, 800, 900]
+max_samples_per_shard: 256
+candidate_student_heads: all   # all 8 native heads at each route layer
+metrics: [mse, cosine, pearson, spearman]
+pairing: bipartite
+precision: bf16
+batch_size: 8
+max_len: 512
+seed: 42

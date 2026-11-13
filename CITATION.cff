@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite it as below.
+title: >-
+  Functional attention heads are transferable units of RNA foundation models:
+  supervised discovery and asynchronous head-to-head distillation
+authors:
+  - family-names: Zhang
+    given-names: Yuming
+  # TODO: complete the full author list (see the manuscript) before the
+  # Zenodo/GitHub release goes live.
+version: 1.0.0
+date-released: 2026-11-13
+license: MIT
+# TODO: fill after upload — repository-code: https://github.com/<org>/rna-head-alignment

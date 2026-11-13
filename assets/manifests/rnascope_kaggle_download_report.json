@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-05-17T17:21:46",
+  "prepared": true,
+  "dataset_slug": "rnascopedata/release",
+  "dataset_url": "https://www.kaggle.com/datasets/b0aeeed2f6b3dfd43c1ab33b58467a466308d056b6868d861ad00e1074ce384d",
+  "download_url": "https://www.kaggle.com/datasets/b0aeeed2f6b3dfd43c1ab33b58467a466308d056b6868d861ad00e1074ce384d/download?datasetVersionNumber=1",
+  "credential_source": "~/.kaggle/kaggle.json",
+  "credentials_ok": true,
+  "metadata": {
+    "url": "https://www.kaggle.com/datasets/b0aeeed2f6b3dfd43c1ab33b58467a466308d056b6868d861ad00e1074ce384d",
+    "dataset_slug": "rnascopedata/release",
+    "dataset_id": "7426236",
+    "title": "RNAscope-All-Datasets",
+    "expected_zip_bytes": 497267067,
+    "page_status_code": 200,
+    "name": "RNAscope-All-Datasets",
+    "description": "# RNA-Scope Dataset Repository\n\n**RNA-Scope** is a unified benchmarking suite for evaluating RNA pre-trained language models (pLMs) on three hierarchical dimensions of RNA biology: **structure**, **interaction**, and **function**. It comprises 15 tasks derived from rigorously curated experimental datasets, spanning pre-mRNA, mRNA, and ncRNA contexts. All tasks use consistent train/validation/test partitions and domain-appropriate evaluation metrics to ensure reproducibility and fairness.\n\nRNA-Sc",
+    "identifier": [
+      "7426236"
+    ],
+    "license": "CC BY-NC-SA 4.0",
+    "content_size": "497267067 bytes",
+    "content_url": "https://www.kaggle.com/datasets/b0aeeed2f6b3dfd43c1ab33b58467a466308d056b6868d861ad00e1074ce384d/download?datasetVersionNumber=1",
+    "requires_subscription": true,
+    "is_accessible_for_free": true
+  },
+  "attempts": [
+    {
+      "status": "ok",
+      "method": "kagglesdk_hash_link",
+      "zip_path": "assets\\data\\rnascope_kaggle\\raw\\RNAscope-All-Datasets.zip",
+      "size_bytes": 497267067,
+      "content_type": "application/zip"
+    }
+  ],
+  "zip_path": "assets\\data\\rnascope_kaggle\\raw\\RNAscope-All-Datasets.zip",
+  "zip_size_bytes": 497267067,
+  "extract": {
+    "status": "ok",
+    "zip_path": "assets\\data\\rnascope_kaggle\\raw\\RNAscope-All-Datasets.zip",
+    "extract_dir": "assets\\data\\rnascope_kaggle\\extracted",
+    "file_count": 47,
+    "size_bytes": 2082655662
+  }
+}

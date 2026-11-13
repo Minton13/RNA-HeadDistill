@@ -1,0 +1,83 @@
+# S1 arm: small student initialised from S0@20k, trained with
+# head-to-head alignment + MLM auxiliary loss for 20k steps.
+# Matched compute/init with S0@40k: same 2.07M train sequences, same steps.
+#
+#   torchrun --standalone --nproc_per_node=6 scripts/head2head/train_head2head.py \
+#       --config configs/head2head/small_student/train_s1_6gpu.yaml
+run_name: small_s1_align_mlm
+output_dir: runs/small_student/small_s1_align_mlm
+cache_format: full
+
+full_slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head/full
+sequence_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/sequence_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest_small.parquet
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+
+train_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+val_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet
+test_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/test.parquet
+
+student:
+  model: rinalmo_micro_small
+  model_dir: assets/models/rinalmo-micro
+  config_overrides:
+    hidden_size: 256
+    num_attention_heads: 8
+    num_hidden_layers: 12
+    intermediate_size: 1024
+    attention_dropout: 0.1
+    hidden_dropout: 0.1
+    token_dropout: true
+  init_checkpoint: runs/small_student/small_s0_mlm/checkpoints/step_20000.pt
+
+model:
+  adapter_dim: 96
+  adapter_ffn_mult: 2
+  train_backbone: true
+  activation_checkpointing: false
+  find_unused_parameters: false
+
+optimizer:
+  lr: 1.0e-4
+  weight_decay: 0.01
+  backbone_lr: 5.0e-5
+  adapter_lr: 1.0e-3
+  backbone_weight_decay: 0.01
+  adapter_weight_decay: 0.0
+  fused: true
+
+scheduler:
+  warmup_steps: 500
+  min_lr_ratio: 0.01
+
+training:
+  max_steps: 20000
+  grad_accum: 4
+  grad_clip: 1.0
+  precision: bf16
+  resume: true
+  route_weights: {L6: 1.0, L8: 1.0, L12: 1.0}
+  loss_lambdas: {kl: 1.0, mse: 1.0, cos: 0.1}
+  normalize_within_route_by_head_count: true
+  mlm_weight: 1.0
+  mlm_prob: 0.15
+  log_every: 50
+  save_every: 1000
+  eval_every: 999999   # separate eval job after training, same as the A3 full run
+  grad_diagnostics_every: 500
+  nccl_timeout: 1800
+  baselines: []
+  oom_budget_decay: 0.8
+  oom_min_budget: 4096
+
+runtime:
+  seed: 42
+  max_len: 1024
+  num_workers: 0
+  lru_cache_size: 2
+  ddp: true
+
+dynamic_batch:
+  max_sequences_per_batch: 4
+  max_pair_tokens: 524288
+  bucket_size_samples: 1000

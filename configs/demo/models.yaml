@@ -1,0 +1,12 @@
+# Demo model registry: a single small teacher (RiNALMo-micro, 12 layers x 20
+# heads, ~120 MB) so the demo runs on CPU in minutes. Stage the weights with:
+#   python scripts/demo/fetch_demo_model.py
+# (or any Hugging Face client; repo id: multimolecule/rinalmo-micro)
+models:
+  rinalmo_micro:
+    type: RNA
+    local_dir: assets/models/rinalmo-micro
+    attention_teacher: true
+    student: true
+    optional: false
+    large: false

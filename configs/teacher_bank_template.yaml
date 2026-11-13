@@ -1,0 +1,49 @@
+banks:
+  L6:
+    student_layer: 6
+    tasks:
+      splice_site_seqcls:
+        teacher_heads: []
+      rbp_binding_seqcls:
+        teacher_heads: []
+      ncRNA_family_seqcls:
+        teacher_heads: []
+      mrna_stability_cds_bart_regression:
+        teacher_heads: []
+      mrna_stability_gleghorn_regression:
+        teacher_heads: []
+      mrna_ribosome_loading_regression:
+        teacher_heads: []
+    dna_student_heads:
+      fraction: 0.333
+      mode: dedicated_student_heads
+  L8:
+    student_layer: 8
+    tasks:
+      chemical_reactivity_token:
+        teacher_heads: []
+      chemical_reactivity_ribonanza_2a3:
+        teacher_heads: []
+      chemical_reactivity_ribonanza_dms:
+        teacher_heads: []
+      chemical_reactivity_rnascope:
+        teacher_heads: []
+      openvaccine_reactivity_token:
+        teacher_heads: []
+      openvaccine_deg_mg_ph10_token:
+        teacher_heads: []
+      openvaccine_deg_mg_50c_token:
+        teacher_heads: []
+  L12:
+    student_layer: 12
+    tasks:
+      secondary_structure_pair:
+        teacher_heads: []
+      rna3d_rnaglib:
+        teacher_heads: []
+      rnascope_contact_map:
+        teacher_heads: []
+student_teacher_mapping:
+  L6: []
+  L8: []
+  L12: []

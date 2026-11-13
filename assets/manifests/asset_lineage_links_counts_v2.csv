@@ -1,0 +1,68 @@
+source_column,source,target_column,target,count_value,asset_count,count_missing_assets,assets
+数据流,训练语料,物种/来源范围,RNA | 人类,830943,2,0,train_rnabert_rnacentral_human;train_utrbert_gencode
+物种/来源范围,RNA | 人类,生物学对象,ncRNA类别/家族,722370,1,0,train_rnabert_rnacentral_human
+生物学对象,ncRNA类别/家族,标签/目标层级,自监督序列目标,60422370,3,0,train_rnabert_rnacentral_human;train_rnafm_rnacentral;train_rinalmo_cocktail
+标签/目标层级,自监督序列目标,采样/切分方式,训练语料 | mask增强,722370,1,0,train_rnabert_rnacentral_human
+数据流,训练语料,物种/来源范围,RNA | 多物种/多数据库,59700000,2,0,train_rnafm_rnacentral;train_rinalmo_cocktail
+物种/来源范围,RNA | 多物种/多数据库,生物学对象,ncRNA类别/家族,79751822,3,0,train_rnafm_rnacentral;train_rinalmo_cocktail;data_rfam_family
+标签/目标层级,自监督序列目标,采样/切分方式,训练语料 | 原始全量/论文定义,25809424,5,1,train_rnafm_rnacentral;train_splicebert_ucsc;train_utrbert_gencode;train_dnabert2_multispecies;train_nt_multispecies
+标签/目标层级,自监督序列目标,采样/切分方式,训练语料 | 聚类去冗余采样,36000000,1,0,train_rinalmo_cocktail
+数据流,训练语料,物种/来源范围,RNA | 脊椎动物多物种,2000000,1,0,train_splicebert_ucsc
+物种/来源范围,RNA | 脊椎动物多物种,生物学对象,pre-mRNA剪接/加工,2000000,1,0,train_splicebert_ucsc
+生物学对象,pre-mRNA剪接/加工,标签/目标层级,自监督序列目标,2000000,1,0,train_splicebert_ucsc
+物种/来源范围,RNA | 人类,生物学对象,UTR/翻译/转录后调控,108573,1,0,train_utrbert_gencode
+生物学对象,UTR/翻译/转录后调控,标签/目标层级,自监督序列目标,108573,1,0,train_utrbert_gencode
+数据流,训练语料,物种/来源范围,RNA | 人类+模型脊椎动物,1,1,1,train_utrlm_5utr
+物种/来源范围,RNA | 人类+模型脊椎动物,生物学对象,UTR/翻译/转录后调控,1,1,1,train_utrlm_5utr
+生物学对象,UTR/翻译/转录后调控,标签/目标层级,自监督序列+结构辅助目标,1,1,1,train_utrlm_5utr
+标签/目标层级,自监督序列+结构辅助目标,采样/切分方式,训练语料 | 原始全量/论文定义,1,1,1,train_utrlm_5utr
+数据流,训练语料,物种/来源范围,DNA | 多物种基因组,851,2,1,train_dnabert2_multispecies;train_nt_multispecies
+物种/来源范围,DNA | 多物种基因组,生物学对象,DNA基因组序列,851,2,1,train_dnabert2_multispecies;train_nt_multispecies
+生物学对象,DNA基因组序列,标签/目标层级,自监督序列目标,875,3,1,train_dnabert2_multispecies;train_hyenadna_grch38;train_nt_multispecies
+数据流,训练语料,物种/来源范围,DNA | 人类,24,1,0,train_hyenadna_grch38
+物种/来源范围,DNA | 人类,生物学对象,DNA基因组序列,24,1,0,train_hyenadna_grch38
+标签/目标层级,自监督序列目标,采样/切分方式,训练语料 | 染色体留出,24,1,0,train_hyenadna_grch38
+数据流,本地归一化benchmark,物种/来源范围,RNA | 结构数据库混合来源,26815,1,0,data_secondary_normalized
+物种/来源范围,RNA | 结构数据库混合来源,生物学对象,RNA二级结构,26815,1,0,data_secondary_normalized
+生物学对象,RNA二级结构,标签/目标层级,pairwise矩阵/接触图,51939,2,0,data_secondary_normalized;rnascope_secondary_structure
+标签/目标层级,pairwise矩阵/接触图,采样/切分方式,本地full+mini | train/val/test,26815,1,0,data_secondary_normalized
+数据流,本地归一化benchmark,物种/来源范围,RNA | 体外/合成实验,335616,1,0,data_ribonanza_quickstart
+物种/来源范围,RNA | 体外/合成实验,生物学对象,化学反应性/探针,335616,1,0,data_ribonanza_quickstart
+生物学对象,化学反应性/探针,标签/目标层级,位点/token标签,503424,2,0,data_ribonanza_quickstart;rnascope_chemical_reactivity
+标签/目标层级,位点/token标签,采样/切分方式,本地full+mini | split未知,335616,1,0,data_ribonanza_quickstart
+数据流,本地归一化benchmark,物种/来源范围,RNA | 多物种/多数据库,20051822,1,0,data_rfam_family
+生物学对象,ncRNA类别/家族,标签/目标层级,序列整体分类,20097269,2,0,data_rfam_family;rnascope_ncrna_category
+标签/目标层级,序列整体分类,采样/切分方式,本地full+mini | train/val/test,21277406,2,0,data_rfam_family;data_rbp_binding
+数据流,本地归一化benchmark,物种/来源范围,RNA | 人类,1225584,1,0,data_rbp_binding
+物种/来源范围,RNA | 人类,生物学对象,RNA-蛋白互作,1225584,1,0,data_rbp_binding
+生物学对象,RNA-蛋白互作,标签/目标层级,序列整体分类,1778266,2,0,data_rbp_binding;rnascope_binary_binding
+数据流,本地归一化benchmark,物种/来源范围,DNA/RNA | 剪接上下文,45619,1,0,data_splice_site
+物种/来源范围,DNA/RNA | 剪接上下文,生物学对象,pre-mRNA剪接/加工,45619,1,0,data_splice_site
+生物学对象,pre-mRNA剪接/加工,标签/目标层级,位点/token标签,1095597,2,0,data_splice_site;rnascope_splicing_site
+标签/目标层级,位点/token标签,采样/切分方式,本地full+mini | train-only,45619,1,0,data_splice_site
+数据流,RNAscope官方benchmark,物种/来源范围,RNA | benchmark混合来源,3951420,15,1,rnascope_secondary_structure;rnascope_chemical_reactivity;rnascope_contact_map;rnascope_binary_binding;rnascope_systematic_binding;rnascope_binding_affinity;rnascope_coding_potential;rnascope_mrna_subcellular;rnascope_ribosome_loading;rnascope_ncrna_category;rnascope_mirna_localization;rnascope_grna_efficiency;rnascope_splicing_site;rnascope_splicing_event;rnascope_polya
+物种/来源范围,RNA | benchmark混合来源,生物学对象,RNA二级结构,25124,1,0,rnascope_secondary_structure
+标签/目标层级,pairwise矩阵/接触图,采样/切分方式,官方train/val/test,25132,2,1,rnascope_secondary_structure;rnascope_contact_map
+物种/来源范围,RNA | benchmark混合来源,生物学对象,化学反应性/探针,167808,1,0,rnascope_chemical_reactivity
+标签/目标层级,位点/token标签,采样/切分方式,官方train/val/test,1217786,2,0,rnascope_chemical_reactivity;rnascope_splicing_site
+物种/来源范围,RNA | benchmark混合来源,生物学对象,RNA三级结构/3D图,8,1,1,rnascope_contact_map
+生物学对象,RNA三级结构/3D图,标签/目标层级,pairwise矩阵/接触图,8,1,1,rnascope_contact_map
+物种/来源范围,RNA | benchmark混合来源,生物学对象,RNA-蛋白互作,1438738,3,0,rnascope_binary_binding;rnascope_systematic_binding;rnascope_binding_affinity
+标签/目标层级,序列整体分类,采样/切分方式,官方train/val/test,1011607,7,0,rnascope_binary_binding;rnascope_coding_potential;rnascope_mrna_subcellular;rnascope_ncrna_category;rnascope_mirna_localization;rnascope_splicing_event;rnascope_polya
+生物学对象,RNA-蛋白互作,标签/目标层级,序列整体回归/排序,886056,2,0,rnascope_systematic_binding;rnascope_binding_affinity
+标签/目标层级,序列整体回归/排序,采样/切分方式,官方train/val/test,1696895,4,0,rnascope_systematic_binding;rnascope_binding_affinity;rnascope_ribosome_loading;rnascope_grna_efficiency
+物种/来源范围,RNA | benchmark混合来源,生物学对象,mRNA功能/定位,203764,3,0,rnascope_coding_potential;rnascope_mrna_subcellular;rnascope_mirna_localization
+生物学对象,mRNA功能/定位,标签/目标层级,序列整体分类,203764,3,0,rnascope_coding_potential;rnascope_mrna_subcellular;rnascope_mirna_localization
+物种/来源范围,RNA | benchmark混合来源,生物学对象,UTR/翻译/转录后调控,789594,1,0,rnascope_ribosome_loading
+生物学对象,UTR/翻译/转录后调控,标签/目标层级,序列整体回归/排序,789594,1,0,rnascope_ribosome_loading
+物种/来源范围,RNA | benchmark混合来源,生物学对象,ncRNA类别/家族,45447,1,0,rnascope_ncrna_category
+物种/来源范围,RNA | benchmark混合来源,生物学对象,gRNA/CRISPR功能,21245,1,0,rnascope_grna_efficiency
+生物学对象,gRNA/CRISPR功能,标签/目标层级,序列整体回归/排序,21245,1,0,rnascope_grna_efficiency
+物种/来源范围,RNA | benchmark混合来源,生物学对象,pre-mRNA剪接/加工,1259692,3,0,rnascope_splicing_site;rnascope_splicing_event;rnascope_polya
+生物学对象,pre-mRNA剪接/加工,标签/目标层级,序列整体分类,209714,2,0,rnascope_splicing_event;rnascope_polya
+数据流,RNA3D结构benchmark,物种/来源范围,RNA | PDB/挑战集/结构库,203,6,5,rna3d_rnaglib;rna3d_rna_puzzles;rna3d_casp_rna_targets;rna3d_rna3d_hub_nr;rna3d_rnasolo;rna3d_rna3db
+物种/来源范围,RNA | PDB/挑战集/结构库,生物学对象,RNA三级结构/3D图,203,6,5,rna3d_rnaglib;rna3d_rna_puzzles;rna3d_casp_rna_targets;rna3d_rna3d_hub_nr;rna3d_rnasolo;rna3d_rna3db
+生物学对象,RNA三级结构/3D图,标签/目标层级,三级结构图/坐标,198,1,0,rna3d_rnaglib
+标签/目标层级,三级结构图/坐标,采样/切分方式,3D图快照 | PDB结构采样,198,1,0,rna3d_rnaglib
+生物学对象,RNA三级结构/3D图,标签/目标层级,元数据/待接入,5,5,5,rna3d_rna_puzzles;rna3d_casp_rna_targets;rna3d_rna3d_hub_nr;rna3d_rnasolo;rna3d_rna3db
+标签/目标层级,元数据/待接入,采样/切分方式,仅元数据/待下载,5,5,5,rna3d_rna_puzzles;rna3d_casp_rna_targets;rna3d_rna3d_hub_nr;rna3d_rnasolo;rna3d_rna3db

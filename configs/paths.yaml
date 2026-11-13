@@ -1,0 +1,22 @@
+project_name: rna_head_alignment
+old_project_root: ../rna_circuit_distill
+asset_root: assets
+models_dir: assets/models
+data_dir: assets/data
+manifests_dir: assets/manifests
+outputs_dir: outputs
+offline: true
+hf:
+  HF_ENDPOINT: https://hf-mirror.com
+  TRANSFORMERS_OFFLINE: "1"
+  HF_DATASETS_OFFLINE: "1"
+  TOKENIZERS_PARALLELISM: "false"
+rinalmo_corpus:
+  path: assets/data/rinalmo_pretraining_corpus
+  format: fasta_or_jsonl_or_parquet
+  sequence_column: sequence
+  sample_fraction: 0.10
+  sample_output: outputs/task_samples/rinalmo_pretrain_10pct.jsonl
+  min_len: 32
+  max_len: 512
+  deduplicate: true

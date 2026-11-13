@@ -1,0 +1,39 @@
+# Stage 4B full-cache evaluation: per-teacher-head identity metrics on val/test.
+# Run after training finishes:
+#
+#   PYTHONPATH=src python scripts/head2head/eval_head2head_full.py \
+#       --config configs/head2head/eval_head2head_full.yaml \
+#       --checkpoint runs/head2head_full/rinalmo_head2head_stage4b_full/checkpoints/best_val.pt \
+#       --run-name rinalmo_head2head_stage4b_full
+run_name: rinalmo_head2head_stage4b_full
+checkpoint: runs/head2head_full/rinalmo_head2head_stage4b_full/checkpoints/best_val.pt
+
+student:
+  model: rinalmo_micro
+  model_dir: assets/models/rinalmo-micro
+
+full_slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head/full
+sequence_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/sequence_manifest.parquet
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest.parquet
+
+splits:
+  val_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet
+  test_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/test.parquet
+
+metrics: [mse, mae, rowwise_kl, cosine, pearson, spearman, top_l_overlap, top_2l_overlap]
+group_by: [task, route_depth, teacher_model, teacher_layer_head, length_bin]
+length_bins: [0, 64, 128, 256, 384, 512]
+baselines:
+  - native_head
+  - linear_projection
+  - random_student_head
+
+output_dir: outputs/alignment/stage4b_head2head/eval_full
+precision: bf16
+batch_size: 8
+max_len: 1024
+
+dynamic_batch:
+  max_sequences_per_batch: 8
+  max_pair_tokens: 524288
+  bucket_size_samples: 1000

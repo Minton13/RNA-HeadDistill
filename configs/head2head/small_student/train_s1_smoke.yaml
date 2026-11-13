@@ -1,0 +1,73 @@
+cache_format: full
+dynamic_batch:
+  bucket_size_samples: 1000
+  max_pair_tokens: 524288
+  max_sequences_per_batch: 4
+full_slim_cache_root: outputs/teacher_attention_cache_slim/stage4b_head2head/full
+head_pair_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/head_pair_manifest_small_smoke.parquet
+model:
+  activation_checkpointing: false
+  adapter_dim: 96
+  adapter_ffn_mult: 2
+  find_unused_parameters: false
+  train_backbone: true
+optimizer:
+  adapter_lr: 0.001
+  adapter_weight_decay: 0.0
+  backbone_lr: 5.0e-05
+  backbone_weight_decay: 0.01
+  fused: true
+  lr: 0.0001
+  weight_decay: 0.01
+output_dir: runs/small_student/small_s1_smoke
+run_name: small_s1_smoke
+runtime:
+  ddp: false
+  lru_cache_size: 2
+  max_len: 1024
+  num_workers: 0
+  seed: 42
+scheduler:
+  min_lr_ratio: 0.01
+  warmup_steps: 500
+sequence_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/sequence_manifest.parquet
+student:
+  config_overrides:
+    attention_dropout: 0.1
+    hidden_dropout: 0.1
+    hidden_size: 256
+    intermediate_size: 1024
+    num_attention_heads: 8
+    num_hidden_layers: 12
+    token_dropout: true
+  model: rinalmo_micro_small
+  model_dir: assets/models/rinalmo-micro
+target_head_manifest: outputs/teacher_attention_cache_slim/stage4b_head2head/manifests/target_head_manifest.parquet
+test_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/test.parquet
+train_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+training:
+  baselines: []
+  eval_every: 999999
+  grad_accum: 1
+  grad_clip: 1.0
+  grad_diagnostics_every: 20
+  log_every: 10
+  loss_lambdas:
+    cos: 0.1
+    kl: 1.0
+    mse: 1.0
+  max_steps: 200
+  mlm_prob: 0.15
+  mlm_weight: 1.0
+  nccl_timeout: 1800
+  normalize_within_route_by_head_count: true
+  oom_budget_decay: 0.8
+  oom_min_budget: 4096
+  precision: bf16
+  resume: false
+  route_weights:
+    L12: 1.0
+    L6: 1.0
+    L8: 1.0
+  save_every: 100
+val_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet

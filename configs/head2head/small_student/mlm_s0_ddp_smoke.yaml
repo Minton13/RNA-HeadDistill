@@ -1,0 +1,41 @@
+dynamic_batch:
+  bucket_size_samples: 6400
+  max_pair_tokens: 4194304
+  max_sequences_per_batch: 64
+optimizer:
+  fused: true
+  lr: 0.0005
+  weight_decay: 0.01
+output_dir: runs/small_student
+run_name: small_s0_mlm_ddp_smoke
+runtime:
+  ddp: true
+  max_len: 1024
+  num_workers: 0
+  seed: 42
+scheduler:
+  min_lr_ratio: 0.05
+  warmup_steps: 10
+student:
+  config_overrides:
+    attention_dropout: 0.1
+    hidden_dropout: 0.1
+    hidden_size: 256
+    intermediate_size: 1024
+    num_attention_heads: 8
+    num_hidden_layers: 12
+    token_dropout: true
+  model_dir: assets/models/rinalmo-micro
+train_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/train.parquet
+training:
+  eval_batches: 50
+  eval_every: 25
+  grad_clip: 1.0
+  log_every: 10
+  max_steps: 50
+  mlm_prob: 0.15
+  nccl_timeout: 1800
+  precision: bf16
+  resume: false
+  save_every: 25
+val_split_index: outputs/teacher_attention_cache_slim/stage4b_head2head/full/index/val.parquet

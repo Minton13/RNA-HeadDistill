@@ -1,0 +1,54 @@
+device: auto
+max_len: 256
+batch_size: 1
+limit: 256
+seed: 42
+heatmaps:
+  score_scale: normalized_0_1
+  vmin: 0.0
+  vmax: 1.0
+  cmap: viridis
+probe:
+  min_train_samples: 8
+  max_iter: 200
+  balanced_subset_per_class: 200
+pairwise:
+  min_separation: 3
+  threshold: 0.5
+  max_pairs_per_sample: 1024
+selection:
+  per_model_per_task_top_k: 5
+  global_per_task_top_k: 30
+  global_per_layer_bank_top_k: 64
+  min_metric_quantile: 0.80
+  max_heads_per_model_per_task: 5
+  max_heads_per_source_layer_per_task: 3
+  prefer_model_diversity: true
+  prefer_layer_diversity: true
+layer_banks:
+  L6:
+    tasks:
+      - splice_site_seqcls
+      - rbp_binding_seqcls
+      - ncRNA_family_seqcls
+      - mrna_stability_cds_bart_regression
+      - mrna_stability_gleghorn_regression
+      - mrna_ribosome_loading_regression
+    student_layer: 6
+    dna_student_head_fraction: 0.333
+  L8:
+    tasks:
+      - chemical_reactivity_token
+      - chemical_reactivity_ribonanza_2a3
+      - chemical_reactivity_ribonanza_dms
+      - chemical_reactivity_rnascope
+      - openvaccine_reactivity_token
+      - openvaccine_deg_mg_ph10_token
+      - openvaccine_deg_mg_50c_token
+    student_layer: 8
+  L12:
+    tasks:
+      - secondary_structure_pair
+      - rna3d_rnaglib
+      - rnascope_contact_map
+    student_layer: 12

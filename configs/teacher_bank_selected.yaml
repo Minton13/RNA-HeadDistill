@@ -1,0 +1,230 @@
+# Manually selected teacher-head bank for server-side attention cache.
+# Layer/head indices are the same 0-based indices used in head_atlas.csv.
+banks:
+  L6:
+    student_layer: 6
+    bank_name: sequence_level_teacher_bank
+    tasks:
+      manual_L6_sequence_bank:
+        teacher_heads:
+          - model: nucleotide_transformer_v2_500m
+            layer: 4
+            head: 3
+            metric: null
+            source: manual
+            dna_informed: true
+          - model: rnafm
+            layer: 4
+            head: 3
+            metric: null
+            source: manual
+          - model: rinalmo_mega
+            layer: 18
+            head: 5
+            metric: null
+            source: manual
+          - model: splicebert
+            layer: 5
+            head: 15
+            metric: null
+            source: manual
+          - model: plantrna_fm
+            layer: 8
+            head: 18
+            metric: null
+            source: manual
+    dna_student_heads:
+      fraction: 0.2
+      mode: dedicated_student_heads
+
+  L8:
+    student_layer: 8
+    bank_name: chemical_reactivity_teacher_bank
+    tasks:
+      manual_L8_chemical_bank:
+        teacher_heads:
+          - model: plantrna_fm
+            layer: 9
+            head: 9
+            metric: null
+            source: manual
+          - model: plantrna_fm
+            layer: 9
+            head: 7
+            metric: null
+            source: manual
+          - model: plantrna_fm
+            layer: 10
+            head: 7
+            metric: null
+            source: manual
+          - model: splicebert
+            layer: 2
+            head: 7
+            metric: null
+            source: manual
+          - model: utrlm_mrl
+            layer: 2
+            head: 10
+            metric: null
+            source: manual
+
+  L12:
+    student_layer: 12
+    bank_name: structure_level_teacher_bank
+    tasks:
+      manual_L12_structure_bank:
+        teacher_heads:
+          - model: rinalmo_giga
+            layer: 31
+            head: 1
+            metric: null
+            source: manual
+          - model: rinalmo_giga
+            layer: 31
+            head: 13
+            metric: null
+            source: manual
+          - model: plantrna_fm
+            layer: 8
+            head: 2
+            metric: null
+            source: manual
+          - model: mrnafm
+            layer: 4
+            head: 9
+            metric: null
+            source: manual
+          - model: moderngena_base
+            layer: 12
+            head: 11
+            metric: null
+            source: manual
+
+student_teacher_mapping:
+  L6:
+    - student_head: 0
+      aligner: L6_H0
+      teacher_group:
+        - model: nucleotide_transformer_v2_500m
+          layer: 4
+          head: 3
+          task: manual_L6_sequence_bank
+          dna_informed: true
+          weight: 1.0
+    - student_head: 1
+      aligner: L6_H1
+      teacher_group:
+        - model: rnafm
+          layer: 4
+          head: 3
+          task: manual_L6_sequence_bank
+          weight: 1.0
+    - student_head: 2
+      aligner: L6_H2
+      teacher_group:
+        - model: rinalmo_mega
+          layer: 18
+          head: 5
+          task: manual_L6_sequence_bank
+          weight: 1.0
+    - student_head: 3
+      aligner: L6_H3
+      teacher_group:
+        - model: splicebert
+          layer: 5
+          head: 15
+          task: manual_L6_sequence_bank
+          weight: 1.0
+    - student_head: 4
+      aligner: L6_H4
+      teacher_group:
+        - model: plantrna_fm
+          layer: 8
+          head: 18
+          task: manual_L6_sequence_bank
+          weight: 1.0
+
+  L8:
+    - student_head: 0
+      aligner: L8_H0
+      teacher_group:
+        - model: plantrna_fm
+          layer: 9
+          head: 9
+          task: manual_L8_chemical_bank
+          weight: 1.0
+    - student_head: 1
+      aligner: L8_H1
+      teacher_group:
+        - model: plantrna_fm
+          layer: 9
+          head: 7
+          task: manual_L8_chemical_bank
+          weight: 1.0
+    - student_head: 2
+      aligner: L8_H2
+      teacher_group:
+        - model: plantrna_fm
+          layer: 10
+          head: 7
+          task: manual_L8_chemical_bank
+          weight: 1.0
+    - student_head: 3
+      aligner: L8_H3
+      teacher_group:
+        - model: splicebert
+          layer: 2
+          head: 7
+          task: manual_L8_chemical_bank
+          weight: 1.0
+    - student_head: 4
+      aligner: L8_H4
+      teacher_group:
+        - model: utrlm_mrl
+          layer: 2
+          head: 10
+          task: manual_L8_chemical_bank
+          weight: 1.0
+
+  L12:
+    - student_head: 0
+      aligner: L12_H0
+      teacher_group:
+        - model: rinalmo_giga
+          layer: 31
+          head: 1
+          task: manual_L12_structure_bank
+          weight: 1.0
+    - student_head: 1
+      aligner: L12_H1
+      teacher_group:
+        - model: rinalmo_giga
+          layer: 31
+          head: 13
+          task: manual_L12_structure_bank
+          weight: 1.0
+    - student_head: 2
+      aligner: L12_H2
+      teacher_group:
+        - model: plantrna_fm
+          layer: 8
+          head: 2
+          task: manual_L12_structure_bank
+          weight: 1.0
+    - student_head: 3
+      aligner: L12_H3
+      teacher_group:
+        - model: mrnafm
+          layer: 4
+          head: 9
+          task: manual_L12_structure_bank
+          weight: 1.0
+    - student_head: 4
+      aligner: L12_H4
+      teacher_group:
+        - model: moderngena_base
+          layer: 12
+          head: 11
+          task: manual_L12_structure_bank
+          weight: 1.0
