@@ -14,11 +14,11 @@ aggregated CSVs/NPZs those figures and tables were built from).
    ```
 
 2. Download the derived-data package from the repository's **GitHub Release**
-   (`https://github.com/<org>/rna-head-alignment/releases`), verify and unpack:
+   ([GitHub Releases](https://github.com/Minton13/RNA-HeadDistill/releases)), verify and unpack:
 
    ```bash
-   # asset: dataset-rna-head-distill_v1.0.0.tar.gz (~16 MB)
-   wget https://github.com/<org>/rna-head-alignment/releases/download/v1.0.0/dataset-rna-head-distill_v1.0.0.tar.gz
+   # asset: dataset-rna-head-distill_v1.0.0.tar.gz (~2.1 MB)
+   wget https://github.com/Minton13/RNA-HeadDistill/releases/download/v1.0.0/dataset-rna-head-distill_v1.0.0.tar.gz
    tar -xzf dataset-rna-head-distill_v1.0.0.tar.gz
    cd dataset-rna-head-distill && sha256sum -c SHA256SUMS && cd ..
    export RNA_HEAD_DISTILL_DATA=$PWD/dataset-rna-head-distill
@@ -28,7 +28,7 @@ aggregated CSVs/NPZs those figures and tables were built from).
    defaults to `./reproduced_figures`.
 
 The trained student checkpoint is published as the separate release asset
-`student-rinalmo-micro-head2head_v1.0.0.tar.gz` (~880 MB, AGPL-3.0 — see
+`student-rinalmo-micro-head2head_v1.0.0.tar.gz` (~844 MB, AGPL-3.0 — see
 [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)); unpack it the same way. It is only
 needed for evaluating or fine-tuning the student, not for regenerating
 figures/tables.

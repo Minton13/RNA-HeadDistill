@@ -2,14 +2,26 @@ cff-version: 1.2.0
 message: >-
   If you use this software, please cite it as below.
 title: >-
-  Functional attention heads are transferable units of RNA foundation models:
-  supervised discovery and asynchronous head-to-head distillation
+  Functional attention head distillation across RNA foundation models
 authors:
   - family-names: Zhang
     given-names: Yuming
-  # TODO: complete the full author list (see the manuscript) before the
-  # Zenodo/GitHub release goes live.
+    affiliation: >-
+      MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, School of Pharmaceutical Sciences, Tsinghua University, Beijing 100084, China;
+      Beijing Frontier Research Center for Biological Structure, State Key Laboratory of Membrane Biology, School of Life Sciences, Tsinghua University, Beijing, China;
+      Peking University–Tsinghua University–National Institute of Biological Sciences (PTN) Joint Graduate Program, School of Life Sciences, Tsinghua University, Beijing 102206, China.
+  - family-names: Tian
+    given-names: Boxue
+    email: boxuetian@mail.tsinghua.edu.cn
+    affiliation: >-
+      MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, School of Pharmaceutical Sciences, Tsinghua University, Beijing 100084, China;
+      Beijing Frontier Research Center for Biological Structure, State Key Laboratory of Membrane Biology, School of Life Sciences, Tsinghua University, Beijing, China.
+contact:
+  - family-names: Tian
+    given-names: Boxue
+    email: boxuetian@mail.tsinghua.edu.cn
 version: 1.0.0
-date-released: 2026-11-13
+date-released: 2026-11-17
 license: MIT
-# TODO: fill after upload — repository-code: https://github.com/<org>/rna-head-alignment
+repository-code: https://github.com/Minton13/RNA-HeadDistill
+url: https://github.com/Minton13/RNA-HeadDistill/releases/tag/v1.0.0

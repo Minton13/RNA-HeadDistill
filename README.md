@@ -1,7 +1,15 @@
-# Functional Attention Heads Are Transferable Units of RNA Foundation Models
+# Functional attention head distillation across RNA foundation models
 
-Code and analysis pipeline for the manuscript *"Functional attention heads
-are transferable units of RNA foundation models"* (under submission).
+Code and analysis pipeline for the manuscript *"Functional attention head
+distillation across RNA foundation models"* (under submission).
+
+Yuming Zhang<sup>1,2,3</sup>, Boxue Tian<sup>1,2,*</sup>
+
+1. MOE Key Laboratory of Bioinformatics, State Key Laboratory of Molecular Oncology, School of Pharmaceutical Sciences, Tsinghua University, Beijing 100084, China.
+2. Beijing Frontier Research Center for Biological Structure, State Key Laboratory of Membrane Biology, School of Life Sciences, Tsinghua University, Beijing, China.
+3. Peking University–Tsinghua University–National Institute of Biological Sciences (PTN) Joint Graduate Program, School of Life Sciences, Tsinghua University, Beijing 102206, China.
+
+*Correspondence and requests for materials: [Boxue Tian](mailto:boxuetian@mail.tsinghua.edu.cn).*
 
 The repository implements the full workflow of the paper:
 
@@ -274,7 +282,8 @@ Tier-2 regeneration of the upstream artifacts:
   exactly with the pipeline above (teacher weights are public; the corpus
   sample and selected-head bank are specified in
   `configs/teacher_bank_selected.yaml` and `configs/paths.yaml`). The cache is
-  also **available from the authors upon request**.
+  also **available from the corresponding author upon request**
+  ([Boxue Tian](mailto:boxuetian@mail.tsinghua.edu.cn)).
 - **Head atlas and aggregated results.** The per-head probe atlas
   (`all_head_atlas.csv`), selected-head tables, downstream bootstrap summaries,
   and systems measurements are small CSVs/parquets under `outputs/` and
@@ -340,21 +349,22 @@ per-figure / per-table commands (`scripts/reproduction/`), prerequisites, and
 verification against the Source Data CSVs.
 
 Everything is distributed through this repository's **GitHub Releases**
-(`https://github.com/<org>/rna-head-alignment/releases`):
+([GitHub Releases](https://github.com/Minton13/RNA-HeadDistill/releases)):
 
 | Release asset | Content | Size |
 |---|---|---|
-| `dataset-rna-head-distill_v1.0.0.tar.gz` | figures/tables source data: head atlas (84,066 records), head selection manifests, downstream/bootstrap/ablation metrics, pilot tables, systems measurements, Source-Data CSVs | ~16 MB |
-| `student-rinalmo-micro-head2head_v1.0.0.tar.gz` | trained student checkpoint (`stage4b_release.pt`, AGPL-3.0 — see [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)), derived `model.safetensors`, resolved config, per-head release metrics | ~880 MB |
-| `teacher-weights-multimolecule-agpl_v1.0.0.tar.gz.part-*` | unmodified snapshots of the seven MultiMolecule-distributed checkpoints whose upstream commits are no longer addressable (AGPL-3.0) | ~4.8 GB total |
-| `teacher-weight-plantrna-fm-mit_v1.0.0.tar.gz` | PlantRNA-FM snapshot (MIT) | ~135 MB |
+| `dataset-rna-head-distill_v1.0.0.tar.gz` | figures/tables source data: head atlas (84,066 records), head selection manifests, downstream/bootstrap/ablation metrics, pilot tables, systems measurements, Source-Data CSVs | ~2.1 MB |
+| `student-rinalmo-micro-head2head_v1.0.0.tar.gz` | trained student checkpoints (`stage4b_release.pt`, latest at step 20,000; `stage4b_paper_eval.pt`, best validation at step 8,000, used for paper results; AGPL-3.0 — see [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)), derived `model.safetensors`, resolved config, per-head release metrics | ~844 MB |
+| `teacher-weights-multimolecule-agpl_v1.0.0.tar.gz.part-*` | unmodified snapshots of the seven MultiMolecule-distributed checkpoints whose upstream commits are no longer addressable (AGPL-3.0) | ~3.96 GB total |
+| `teacher-weight-plantrna-fm-mit_v1.0.0.tar.gz` | PlantRNA-FM snapshot (MIT) | ~126 MB |
 
 Verify any download with `sha256sum -c SHA256SUMS` (shipped inside each
 tarball and on the release page).
 
 ## Citation
 
-TODO (added upon publication).
+See [CITATION.cff](CITATION.cff) for the software citation. The manuscript
+citation will be added upon publication.
 
 ## License
 
