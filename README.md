@@ -326,10 +326,12 @@ pip install -e .
 pytest            # or: PYTHONPATH=src python -m pytest
 ```
 
-The suite (75 tests, ~25 s, CPU-only, no network) covers attention-extraction
+The suite (77 tests, CPU-only, no network) covers attention-extraction
 shapes, cache round-trip and slim-cache equivalence, head2head losses/metrics/
 gradient routing/DDP wiring, MLM utilities, manifest builders, task loaders,
-and collation. Current status on the reference environment: **75 passed**.
+and collation, including both tuple and tensor layer outputs. Release
+validation: **77 passed** with PyTorch 2.7.1, Transformers 5.8.1 and
+MultiMolecule 0.1.0.
 
 ## Notes
 

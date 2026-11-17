@@ -57,6 +57,22 @@ def test_exit_hidden_and_head_output_shapes(tiny_rinalmo_model_dir):
         assert exits[route]["head_outputs"].shape == (2, 5, 8, 8)  # [B, K, L, head_dim]
 
 
+@pytest.mark.parametrize("tuple_output", [False, True])
+def test_layer_hook_preserves_batch_and_gradients(tuple_output):
+    backbone = RiNALMoStudentBackbone.__new__(RiNALMoStudentBackbone)
+    torch.nn.Module.__init__(backbone)
+    backbone._captured = {}
+    hidden = torch.randn(2, 8, 48, requires_grad=True)
+    output = (hidden,) if tuple_output else hidden
+
+    backbone._make_layer_hook(6)(torch.nn.Identity(), (), output)
+
+    captured = backbone._captured[6]["hidden"]
+    assert captured.shape == (2, 8, 48)
+    captured.sum().backward()
+    assert torch.equal(hidden.grad, torch.ones_like(hidden))
+
+
 def test_tiny_parameter_count(tiny_rinalmo_model_dir):
     model = _tiny_student(tiny_rinalmo_model_dir)
     counts = model.count_parameters()

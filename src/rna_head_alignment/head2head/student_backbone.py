@@ -28,7 +28,9 @@ captures ``outputs[0]`` which we reshape to ``[B, L, H, head_dim]`` and slice th
 paired heads. This is the exact tensor the model itself computes (rotary,
 masking, scaling all applied by the model), and gradients flow through it —
 unlike ``output_attentions=True`` which is designed for inspection. The hidden
-states are captured with a forward hook on ``encoder.layer.{i}`` (``outputs[0]``).
+states are captured with a forward hook on ``encoder.layer.{i}``. Older
+MultiMolecule versions return a tuple (``outputs[0]``); newer versions return
+the hidden-state tensor directly.
 
 The local checkpoint stores weights under a ``model.`` wrapper prefix while
 ``AutoModel`` instantiates ``RiNALMoModel`` whose parameters are unprefixed; we
@@ -151,10 +153,10 @@ class RiNALMoStudentBackbone(nn.Module):
     # ------------------------------------------------------------------ hooks
 
     def _make_layer_hook(self, route: int):
-        def hook(module: nn.Module, args: tuple, output: tuple) -> None:
+        def hook(module: nn.Module, args: tuple, output: torch.Tensor | tuple) -> None:
             slot = self._captured.setdefault(route, {})
-            # RiNALMoLayer outputs: (layer_output, [attentions], ...)
-            slot["hidden"] = output[0]
+            # Preserve the batch dimension for both MultiMolecule layer APIs.
+            slot["hidden"] = output if isinstance(output, torch.Tensor) else output[0]
 
         return hook
 

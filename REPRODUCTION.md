@@ -62,10 +62,12 @@ python scripts/reproduction/reproduce_tables.py --outdir repro/
 | Table | Strategy | Source |
 |---|---|---|
 | Table 1 (selected heads) | canonical | `selection/selected_teacher_heads.csv` |
-| Table 2 (downstream) | canonical | `metrics/downstream/downstream_full_metrics.csv` |
+| Table 2 (downstream) | canonical | `figures_source/Table2.csv` → `downstream_paper_metrics.csv` |
+| Supporting full downstream metrics | canonical | `metrics/downstream/downstream_full_metrics.csv` |
 | Table S1 (pilot grid) | canonical | `pilot/pilot_grid_summary.csv` |
 | Table S2 (pilot RNA3DB) | canonical | `pilot/pilot_rna3db_val_curve.csv` |
-| Table S3 (head-score concentration) | rebuilt | `atlas/all_head_atlas.csv` |
+| Table S3 (head-score concentration) | canonical | `figures_source/TableS3.csv` |
+| Supporting per-task head-score statistics | rebuilt | `atlas/all_head_atlas.csv` → `head_functionality_by_task.csv` |
 | Table S4 (fine-tuning alternatives) | canonical | `metrics/ablation/route_finetune.csv`, `multitask.csv` |
 | Table S5 (alignment ablation) | canonical | `metrics/ablation/alignment_ablation.csv` |
 | supporting: delta / replay / pairing / loss / data-scaling / teacher-count | canonical or rebuilt | `metrics/ablation/` (see manifest) |
@@ -81,12 +83,22 @@ raw per-run logs (tens of GB, separate repository) are not redistributable.
 
 ## Verification
 
-1. `python scripts/reproduction/reproduce_tables.py --outdir repro/` — every
-   table row in `repro/tables/` must be numerically identical to the
-   `figures_source/` CSVs (Source Data) shipped in the same package, e.g.
-   `diff <(sort repro/tables/head_functionality_stats.csv) <(sort "$RNA_HEAD_DISTILL_DATA/figures_source/head_functionality_stats.csv")`
-   where a same-named Source Data CSV exists.
+1. `python scripts/reproduction/reproduce_tables.py --outdir repro/` — compare
+   the paper tables with their Source Data CSVs in `figures_source/`. The
+   filenames differ: `selected_teacher_heads.csv` → `Table1.csv`,
+   `downstream_paper_metrics.csv` → `Table2.csv`, `pilot_grid_summary.csv` →
+   `TableS1.csv`, `pilot_rna3db_val_curve.csv` → `TableS2.csv`,
+   `head_functionality_stats.csv` → `TableS3.csv`, `route_finetune.csv` →
+   `TableS4a.csv`, `multitask.csv` → `TableS4b.csv`, `alignment_replay.csv` →
+   `TableS4c.csv`, `alignment_ablation.csv` → `TableS5a.csv`, and
+   `alignment_ablation_delta.csv` → `TableS5b.csv`. For example:
+   `diff <(sort repro/tables/head_functionality_stats.csv) <(sort "$RNA_HEAD_DISTILL_DATA/figures_source/TableS3.csv")`.
+   `downstream_full_metrics.csv` is a supporting metric table; the paper's
+   Table 2 has its own model/method coverage and provenance column, preserved
+   in `downstream_paper_metrics.csv`.
+   Supporting `head_functionality_by_task.csv` summarizes each task/model
+   separately and is distinct from the canonical Table S3.
 2. Each figure script prints the path it wrote plus `real`/`fallback` data
    status (Fig. 1); expect `real` for all thumbnails with the full package.
-3. `pip install -e . && pytest` — the bundled test suite (75 tests, CPU-only,
+3. `pip install -e . && pytest` — the bundled test suite (77 tests, CPU-only,
    no network) validates the analysis/training code itself.

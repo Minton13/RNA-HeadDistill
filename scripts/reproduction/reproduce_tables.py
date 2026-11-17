@@ -2,27 +2,29 @@
 # Provenance: new script written on 2026-11-13 for the public release (no
 # monorepo counterpart; it consolidates the table-rebuild logic of
 # paper/scripts/rebuild_fixed_tables.py, rebuild_pairing_stability.py and
-# paper/notes/_analysis_head_function.py against the published HF dataset
+# paper/notes/_analysis_head_function.py against the published release data
 # layout).
 """Rebuild every paper table CSV into <outdir>/tables/.
 
 Two strategies per table (recorded in <outdir>/tables/tables_manifest.json):
 
-  rebuilt    recomputed from derived data shipped in the HF dataset
-             (e.g. head_functionality_stats.csv from atlas/all_head_atlas.csv,
+  rebuilt    recomputed from derived data shipped in the release dataset
+             (e.g. head_functionality_by_task.csv from atlas/all_head_atlas.csv,
              alignment_ablation_delta.csv from metrics/ablation/
              alignment_ablation.csv);
-  canonical  copied verbatim from the canonical CSV shipped in the HF dataset
+  canonical  copied verbatim from the canonical CSV shipped in the release dataset
              (tables whose rebuild requires raw per-seed artifacts that are
              not part of the data package; see rebuild_fixed_tables.py /
              rebuild_pairing_stability.py for the full provenance pipeline).
 
 Paper anchors:
   Table 1   selected_teacher_heads.csv          (canonical, selection/)
-  Table 2   downstream_full_metrics.csv         (canonical, metrics/downstream/)
+  Table 2   downstream_paper_metrics.csv        (canonical, figures_source/)
+  Support   downstream_full_metrics.csv         (canonical, metrics/downstream/)
   Table S1  pilot_grid_summary.csv              (canonical, pilot/)
   Table S2  pilot_rna3db_val_curve.csv          (canonical, pilot/)
-  Table S3  head_functionality_stats.csv        (rebuilt from atlas/)
+  Table S3  head_functionality_stats.csv        (canonical, figures_source/)
+  Support   head_functionality_by_task.csv     (rebuilt from atlas/)
   Table S4  route_finetune.csv + multitask.csv  (canonical, metrics/ablation/)
   Table S5  alignment_ablation.csv              (canonical, metrics/ablation/)
 
@@ -49,7 +51,10 @@ def default_data_root() -> Path:
 # ----------------------------------------------------------- rebuild recipes
 
 def rebuild_head_functionality_stats(data_root: Path, out: Path) -> Path:
-    """Table S3 — per-model head-score concentration, from the full atlas.
+    """Supporting per-task/model head-score concentration from the full atlas.
+
+    This per-task summary has a different schema and scope from the published
+    Table S3, whose canonical Source Data are copied separately.
 
     Mirrors the aggregation in the original analysis (cleaning: drop
     model_load_failed rows, drop null metrics, drop degenerate task x model
@@ -85,7 +90,7 @@ def rebuild_head_functionality_stats(data_root: Path, out: Path) -> Path:
             "top5_minus_median": round(t5 - med, 4),
         })
     stats = pd.DataFrame(rows).sort_values(["task", "model"])
-    dst = out / "head_functionality_stats.csv"
+    dst = out / "head_functionality_by_task.csv"
     stats.to_csv(dst, index=False)
     return dst
 
@@ -132,7 +137,9 @@ def rebuild_alignment_ablation_delta(data_root: Path, out: Path) -> Path:
 CANONICAL = [
     ("selected_teacher_heads.csv", "Table 1",
      ["selection/selected_teacher_heads.csv"]),
-    ("downstream_full_metrics.csv", "Table 2",
+    ("downstream_paper_metrics.csv", "Table 2",
+     ["figures_source/Table2.csv"]),
+    ("downstream_full_metrics.csv", "Table 2 (full metric support)",
      ["metrics/downstream/downstream_full_metrics.csv"]),
     ("downstream_primary_bootstrap.csv", "Table 2 (bootstrap support)",
      ["metrics/downstream/downstream_primary_bootstrap.csv"]),
@@ -144,6 +151,8 @@ CANONICAL = [
      ["pilot/pilot_grid_experiments.csv"]),
     ("pilot_rna3db_val_curve.csv", "Table S2",
      ["pilot/pilot_rna3db_val_curve.csv"]),
+    ("head_functionality_stats.csv", "Table S3",
+     ["figures_source/TableS3.csv"]),
     ("route_finetune.csv", "Table S4a",
      ["metrics/ablation/route_finetune.csv"]),
     ("multitask.csv", "Table S4b",
@@ -171,7 +180,7 @@ CANONICAL = [
 ]
 
 REBUILT = [
-    ("head_functionality_stats.csv", "Table S3", rebuild_head_functionality_stats,
+    ("head_functionality_by_task.csv", "SI (per-task head-score support)", rebuild_head_functionality_stats,
      ["atlas/all_head_atlas.csv"]),
     ("alignment_ablation_delta.csv", "Table S5 (delta support)",
      rebuild_alignment_ablation_delta,
@@ -182,7 +191,7 @@ REBUILT = [
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--data-root", type=Path, default=default_data_root(),
-                    help="root of the downloaded HF dataset "
+                    help="root of the downloaded release dataset "
                          "(default: $RNA_HEAD_DISTILL_DATA)")
     ap.add_argument("--outdir", type=Path, default=Path("./reproduced_figures"),
                     help="output root; tables go to <outdir>/tables/")
