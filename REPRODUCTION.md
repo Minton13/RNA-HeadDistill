@@ -13,24 +13,25 @@ aggregated CSVs/NPZs those figures and tables were built from).
    pip install -e ".[analysis]"
    ```
 
-2. Download the HF dataset `dataset-rna-head-distill` and point the
-   environment variable at its root:
-
-   <!-- TODO: fill after upload — https://huggingface.co/datasets/<org>/dataset-rna-head-distill -->
+2. Download the derived-data package from the repository's **GitHub Release**
+   (`https://github.com/<org>/rna-head-alignment/releases`), verify and unpack:
 
    ```bash
-   huggingface-cli download <org>/dataset-rna-head-distill \
-       --repo-type dataset --local-dir ./dataset-rna-head-distill
+   # asset: dataset-rna-head-distill_v1.0.0.tar.gz (~16 MB)
+   wget https://github.com/<org>/rna-head-alignment/releases/download/v1.0.0/dataset-rna-head-distill_v1.0.0.tar.gz
+   tar -xzf dataset-rna-head-distill_v1.0.0.tar.gz
+   cd dataset-rna-head-distill && sha256sum -c SHA256SUMS && cd ..
    export RNA_HEAD_DISTILL_DATA=$PWD/dataset-rna-head-distill
    ```
 
    All scripts also accept an explicit `--data-root <dir>`; `--outdir`
    defaults to `./reproduced_figures`.
 
-The trained student checkpoint is published separately as the HF model
-`rinalmo-micro-head2head`.
-
-<!-- TODO: fill after upload — https://huggingface.co/<org>/rinalmo-micro-head2head -->
+The trained student checkpoint is published as the separate release asset
+`student-rinalmo-micro-head2head_v1.0.0.tar.gz` (~880 MB, AGPL-3.0 — see
+[MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)); unpack it the same way. It is only
+needed for evaluating or fine-tuning the student, not for regenerating
+figures/tables.
 
 ## Figures
 

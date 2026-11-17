@@ -287,9 +287,16 @@ Tier-2 regeneration of the upstream artifacts:
   per-file checksums are catalogued in `assets/manifests/`. Dataset preparation
   for downstream evaluation is `configs/ablation/downstream_data.yaml` +
   `scripts/ablation/prepare_downstream_datasets.py`.
-- **Model weights**: all 26 screened models are public on Hugging Face
-  (`configs/models.yaml` maps names to staged directories; several need
-  `trust_remote_code`, handled automatically). RiNALMo-micro is both a screened
+- **Model weights**: the exact checkpoints (HF repository + revision + SHA256 +
+  licence) for the nine teacher models and the student backbone are pinned in
+  [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md). Because the MultiMolecule weight repos
+  were repacked upstream (2026-05-31) and the commits we used are no longer
+  publicly addressable, those unmodified snapshots are mirrored as GitHub
+  Release assets (see below); gated or unlicensed checkpoints
+  (Nucleotide-Transformer-v2-500m, ModernGENA-base) are not mirrored and must
+  be fetched from Hugging Face at the pinned revisions. `configs/models.yaml`
+  maps model names to staged directories; several models need
+  `trust_remote_code`, handled automatically. RiNALMo-micro is both a screened
   teacher and the student backbone.
 
 ## Hardware and software environment
@@ -332,10 +339,18 @@ derived-data package — see [REPRODUCTION.md](REPRODUCTION.md) for the
 per-figure / per-table commands (`scripts/reproduction/`), prerequisites, and
 verification against the Source Data CSVs.
 
-- HF dataset `dataset-rna-head-distill` (figures/tables source data):
-  <!-- TODO: fill after upload — https://huggingface.co/datasets/<org>/dataset-rna-head-distill -->
-- HF model `rinalmo-micro-head2head` (trained student checkpoint):
-  <!-- TODO: fill after upload — https://huggingface.co/<org>/rinalmo-micro-head2head -->
+Everything is distributed through this repository's **GitHub Releases**
+(`https://github.com/<org>/rna-head-alignment/releases`):
+
+| Release asset | Content | Size |
+|---|---|---|
+| `dataset-rna-head-distill_v1.0.0.tar.gz` | figures/tables source data: head atlas (84,066 records), head selection manifests, downstream/bootstrap/ablation metrics, pilot tables, systems measurements, Source-Data CSVs | ~16 MB |
+| `student-rinalmo-micro-head2head_v1.0.0.tar.gz` | trained student checkpoint (`stage4b_release.pt`, AGPL-3.0 — see [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)), derived `model.safetensors`, resolved config, per-head release metrics | ~880 MB |
+| `teacher-weights-multimolecule-agpl_v1.0.0.tar.gz.part-*` | unmodified snapshots of the seven MultiMolecule-distributed checkpoints whose upstream commits are no longer addressable (AGPL-3.0) | ~4.8 GB total |
+| `teacher-weight-plantrna-fm-mit_v1.0.0.tar.gz` | PlantRNA-FM snapshot (MIT) | ~135 MB |
+
+Verify any download with `sha256sum -c SHA256SUMS` (shipped inside each
+tarball and on the release page).
 
 ## Citation
 
@@ -343,4 +358,9 @@ TODO (added upon publication).
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+- **Code**: MIT License. See [LICENSE](LICENSE).
+- **Trained student checkpoint**: AGPL-3.0 (fine-tuned from the MultiMolecule
+  distribution of RiNALMo-micro; see [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)).
+- **Third-party teacher weights**: each retains its original licence
+  (AGPL-3.0 / MIT / CC BY-NC-SA 4.0 / unlicensed — per-model table in
+  [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md)).
