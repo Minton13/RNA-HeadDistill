@@ -20,8 +20,8 @@ contact:
   - family-names: Tian
     given-names: Boxue
     email: boxuetian@mail.tsinghua.edu.cn
-version: 1.0.0
-date-released: 2026-11-17
+version: 1.0.1
+date-released: 2026-11-18
 license: MIT
 repository-code: https://github.com/Minton13/RNA-HeadDistill
-url: https://github.com/Minton13/RNA-HeadDistill/releases/tag/v1.0.0
+url: https://github.com/Minton13/RNA-HeadDistill/tree/release/v1.0.1

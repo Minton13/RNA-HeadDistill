@@ -11,6 +11,13 @@ Yuming Zhang<sup>1,2,3</sup>, Boxue Tian<sup>1,2,*</sup>
 
 *Correspondence and requests for materials: [Boxue Tian](mailto:boxuetian@mail.tsinghua.edu.cn).*
 
+
+## v1.0.1 reproducibility supplement
+
+The reviewed supplement fixes CUDA screening, logs sample failures, and filters annotated splits before sample limits. See [reproduction and release status](docs/README_REPRODUCTION.md), [changes](docs/CHANGELOG_v1.0.1.md), [22-row provenance](release-metadata/v1.0.1/dataset_provenance_public.csv), and [Source Data workbook](source_data/v1.0.1/SourceData.xlsx).
+
+The complete v1.0.1 data release is **pending**: local verification found 27 P4g/A8-P4g prediction path collisions and SHA256 mismatches. The existing [v1.0.0 release](https://github.com/Minton13/RNA-HeadDistill/releases/tag/v1.0.0) remains available and unchanged. No frozen figure or checkpoint was modified.
+
 The repository implements the full workflow of the paper:
 
 1. **Head screening (atlas).** Every attention head of 26 RNA/DNA foundation
@@ -326,11 +333,11 @@ pip install -e .
 pytest            # or: PYTHONPATH=src python -m pytest
 ```
 
-The suite (77 tests, CPU-only, no network) covers attention-extraction
+The suite (86 tests, CPU-only, no network) covers attention-extraction
 shapes, cache round-trip and slim-cache equivalence, head2head losses/metrics/
 gradient routing/DDP wiring, MLM utilities, manifest builders, task loaders,
 and collation, including both tuple and tensor layer outputs. Release
-validation: **77 passed** with PyTorch 2.7.1, Transformers 5.8.1 and
+validation: **86 passed** with PyTorch 2.7.1, Transformers 5.8.1 and
 MultiMolecule 0.1.0.
 
 ## Notes

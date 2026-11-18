@@ -1,0 +1,16 @@
+route,route_depth,rank_in_route,teacher_model,teacher_layer,teacher_head,selection_score,atlas_source_task,rank_in_task_model,n_heads_in_task_model,percentile_in_task_model,cache_channel,loss_weight,rel_depth
+L6_sequence,6,1,splicebert,5,15,0.8693,splice_site_seqcls,1,96,100.0,0,1.0,0.8333333333333334
+L6_sequence,6,2,plantrna_fm,8,18,0.8595,rbp_binding_seqcls,1,240,100.0,0,1.0,0.6666666666666666
+L6_sequence,6,3,nucleotide_transformer_v2_500m,4,3,0.6209,splice_site_seqcls,52,464,89.0,0,1.0,0.13793103448275862
+L6_sequence,6,4,rinalmo_mega,18,5,0.6147,mrna_stability_cds_bart_regression,1,600,100.0,0,1.0,0.6
+L6_sequence,6,5,rnafm,4,3,0.61,mrna_stability_gleghorn_regression,1,240,100.0,0,1.0,0.3333333333333333
+L8_chemical,8,1,plantrna_fm,10,7,0.7353,rbp_binding_seqcls,10,240,96.2,3,1.0,0.8333333333333334
+L8_chemical,8,2,plantrna_fm,9,7,0.6667,splice_site_seqcls,16,240,93.8,2,1.0,0.75
+L8_chemical,8,3,utrlm_mrl,2,10,0.6176,splice_site_seqcls,34,96,65.6,0,1.0,0.3333333333333333
+L8_chemical,8,4,plantrna_fm,9,9,0.5196,splice_site_seqcls,153,240,36.7,1,1.0,0.75
+L8_chemical,8,5,splicebert,2,7,0.4869,splice_site_seqcls,70,96,28.1,1,1.0,0.3333333333333333
+L12_structure,12,1,rinalmo_giga,31,13,0.9111,secondary_structure_pair,1,660,100.0,1,1.0,0.9393939393939394
+L12_structure,12,2,rinalmo_giga,31,1,0.8806,secondary_structure_pair,2,660,99.8,0,1.0,0.9393939393939394
+L12_structure,12,3,plantrna_fm,8,2,0.5817,rbp_binding_seqcls,98,240,59.6,4,1.0,0.6666666666666666
+L12_structure,12,4,moderngena_base,12,11,0.5392,splice_site_seqcls,186,264,29.9,0,1.0,0.5454545454545454
+L12_structure,12,5,mrnafm,4,9,0.375,rbp_binding_seqcls,172,240,28.8,0,1.0,0.3333333333333333

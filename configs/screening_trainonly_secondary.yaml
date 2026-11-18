@@ -1,0 +1,33 @@
+# Train-only re-screening of secondary_structure_pair.
+#
+# Identical to configs/screening.yaml except for the two keys at the bottom.
+# The original atlas run (screening_jobs_all_models_local_100.csv, limit=100)
+# probed each model on the FIRST 100 valid records of
+# assets/data/secondary/secondary_full.jsonl, which is shuffled
+# (~80 train / ~11 test / ~9 val per 100 records). split_filter keeps only
+# split=="train" records; post_filter_limit then caps the pool at the same
+# n=100 per model, so per-head AUPRC noise is comparable to the original run.
+#
+# Filtering is applied by the JSONL loader before its limit, so the
+# first 100 valid annotated train records are retained even when the
+# source starts with a long validation/test prefix. No labels are changed.
+device: auto
+max_len: 256
+batch_size: 1
+limit: 600
+seed: 42
+heatmaps:
+  score_scale: normalized_0_1
+  vmin: 0.0
+  vmax: 1.0
+  cmap: viridis
+probe:
+  min_train_samples: 8
+  max_iter: 200
+  balanced_subset_per_class: 200
+pairwise:
+  min_separation: 3
+  threshold: 0.5
+  max_pairs_per_sample: 1024
+split_filter: ["train"]
+post_filter_limit: 100

@@ -1,0 +1,10 @@
+item,gpu_hours,kind,note,evidence
+forward_only_corpus_pass,7.51,forward_only_rescaled,"single-A100 no_grad forward over 2072010 seqs at 76.68 seq/s (rescaled from 10k microbenchmark); NOT a training cost",paper/audit/systems/fig3_forensic_audit.md
+student_training_run,33.58,measured,"6xA100 production run 2026-07-15; 5000 optimizer updates (20000 micro-batches/rank); 366292 sequences (17.7% of corpus)",paper/audit/hardware/hardware_training_facts.md
+cache_build_moderngena_base,23.2,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md
+cache_build_mrnafm,26.1,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md
+cache_build_nt_v2_500m,43.9,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md
+cache_build_plantrna,37.2,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md
+cache_build_rnafm,39.8,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md
+cache_build_splicebert,32.4,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md
+cache_build_utrlm,32.5,measured_shard_jobs,"sum over single-GPU shard-job logs 2026-06-26..2026-07-14",paper/audit/systems/fig3_forensic_audit.md

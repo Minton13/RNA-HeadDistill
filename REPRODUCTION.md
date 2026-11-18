@@ -100,5 +100,5 @@ raw per-run logs (tens of GB, separate repository) are not redistributable.
    separately and is distinct from the canonical Table S3.
 2. Each figure script prints the path it wrote plus `real`/`fallback` data
    status (Fig. 1); expect `real` for all thumbnails with the full package.
-3. `pip install -e . && pytest` — the bundled test suite (77 tests, CPU-only,
+3. `pip install -e . && pytest` — the bundled test suite (86 tests, CPU-only,
    no network) validates the analysis/training code itself.

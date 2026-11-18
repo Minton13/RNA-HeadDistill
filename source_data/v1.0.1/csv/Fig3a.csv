@@ -1,0 +1,5 @@
+scenario,measurement,throughput_seq_per_sec,n_sequences,peak_vram_gb,notes
+S0_offline_cached,measured (offline cache),76.68480029283974,10000,0.31813632,student forward + bucketed cache read
+S1_online_single_teacher,measured,44.06221243403935,10000,4.856134144,online extraction of 1 teacher model(s)
+S2_online_three_teachers,measured,12.404104278125754,10000,10.548316672,online extraction of 3 teacher model(s)
+S3_online_full_estimate,extrapolated from S2 per-model time,4.134701426041918,10000,10.548316672,extrapolated from S2 per-model time (9 models); NOT measured

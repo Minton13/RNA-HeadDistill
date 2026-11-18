@@ -1,0 +1,22 @@
+dataset,dataset_type,split,n_sequences,use
+teacher-attention cache,alignment_cache,train,2072010,student distillation training
+teacher-attention cache,alignment_cache,val,21143,head pairing + early stopping
+teacher-attention cache,alignment_cache,test,21136,alignment eval (row KL / cosine)
+Splice donor,downstream_task,train,36437,probe/fine-tune training
+Splice donor,downstream_task,val,4670,checkpoint selection
+Splice donor,downstream_task,test,4512,test bootstrap metrics
+Splice acceptor,downstream_task,train,36475,probe/fine-tune training
+Splice acceptor,downstream_task,val,4709,checkpoint selection
+Splice acceptor,downstream_task,test,4435,test bootstrap metrics
+RBP binding,downstream_task,train,962667,probe/fine-tune training
+RBP binding,downstream_task,val,120152,checkpoint selection
+RBP binding,downstream_task,test,142760,test bootstrap metrics
+ncRNA family,downstream_task,train,1403,probe/fine-tune training
+ncRNA family,downstream_task,val,169,checkpoint selection
+ncRNA family,downstream_task,test,162,test bootstrap metrics
+Chemical reactivity,downstream_task,train,126909,probe/fine-tune training
+Chemical reactivity,downstream_task,val,26463,checkpoint selection
+Chemical reactivity,downstream_task,test,14436,test bootstrap metrics
+Secondary structure,downstream_task,train,18407,probe/fine-tune training
+Secondary structure,downstream_task,val,2273,checkpoint selection
+Secondary structure,downstream_task,test,2312,test bootstrap metrics

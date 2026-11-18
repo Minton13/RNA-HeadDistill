@@ -1,0 +1,12 @@
+artifact_class,license,evidence,redistribution_status,location
+code (rna-head-alignment),MIT,repo LICENSE file,redistributable,already in v1.0.0 (git repo)
+student checkpoints (best_val/latest),AGPL-3.0,MultiMolecule license FAQ: fine-tuned weights follow upstream,redistributable under AGPL-3.0,already in v1.0.0
+7 multimolecule teacher weights,AGPL-3.0,upstream repackaged 2026-05-31; bytes mirrored,redistributable under AGPL-3.0,already in v1.0.0 (2 parts)
+plantrna_fm teacher weights,MIT,upstream license,redistributable,already in v1.0.0
+nucleotide_transformer_v2_500m weights,CC BY-NC-SA + HF gated,HF card,NOT mirrored (gated; mirroring would bypass gate),upstream fetch at pinned revision
+moderngena_base weights,no license field,HF card,NOT redistributable by default,upstream fetch at pinned revision
+dataset provenance table (22 rows),CC0-style facts + DOI metadata,compiled by authors,redistributable,v1.0.1 metadata
+SourceData.xlsx + 33 csv,author-generated aggregate numerics,recomputed from pipeline outputs,redistributable,v1.0.1 source_data
+per-sequence predictions: splice/rbp/ncRNA/chem,derived results (seq_id + label + score); upstream licenses vary (DNAGPT/ENNGene unspecified; Rfam-AGPL-distribution; Ribonanza-MIT mirror),no raw sequences included,published as scientific source data,v1.0.1 predictions
+per-sequence predictions: secondary_structure_pair,bpRNA-90 (AGPL distribution),32 GB pairwise dumps,INDEX ONLY (sha256 + bytes); raw upon request,not packaged (size)
+8.8 TiB teacher attention cache,derived from AGPL models,release decision 2026-11-17,available upon request only,not packaged

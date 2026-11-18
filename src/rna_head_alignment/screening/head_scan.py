@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import gc
+import logging
 import time
 import traceback
 from pathlib import Path
@@ -75,7 +76,18 @@ def screen_heads(
     out = resolve_path(output)
     if out.exists() and out.stat().st_size > 0:
         return pd.read_csv(out).to_dict("records")
-    samples = load_task_samples(task_name, task_cfg, limit=limit, max_len=max_len)
+    split_filter = cfg.get("split_filter")
+    if split_filter:
+        allowed = {split_filter} if isinstance(split_filter, str) else {str(s) for s in split_filter}
+        cap = int(cfg.get("post_filter_limit", limit))
+        if cap <= 0:
+            raise ValueError("post_filter_limit must be positive")
+        samples = load_task_samples(task_name, task_cfg, limit=cap, max_len=max_len,
+                                    split_filter=allowed)
+        samples = [s for s in samples if str(s.split) in allowed]
+        samples = samples[:cap]
+    else:
+        samples = load_task_samples(task_name, task_cfg, limit=limit, max_len=max_len)
     if not samples:
         rows = [empty_row("no_samples_loaded", 0)]
         df = pd.DataFrame(rows)
@@ -121,7 +133,7 @@ def screen_heads(
             )
             if bundle.attentions is None:
                 continue
-            attn_np = bundle.attentions.numpy()
+            attn_np = bundle.attentions.detach().cpu().numpy()
             if stream_head_features:
                 attention_features.append(head_feature_stack(attn_np))
                 kept_samples.append(sample)
@@ -151,6 +163,10 @@ def screen_heads(
                 if torch.cuda.is_available():
                     torch.cuda.empty_cache()
         except Exception:
+            logging.getLogger(__name__).warning(
+                "Screening failed for model=%s task=%s sample=%s",
+                model_name, task_name, sample.seq_id, exc_info=True,
+            )
             continue
     if stream_head_features and attention_features:
         feature_array = np.stack(attention_features, axis=0)

@@ -1,0 +1,48 @@
+{
+  "release_version": "v1.0.1",
+  "build_timestamp_utc": "2026-11-18T04:33:55.537927+00:00",
+  "paper": "Functional attention head distillation across RNA foundation models",
+  "downstream_grid": {
+    "tasks": [
+      "chemical_reactivity_token",
+      "ncRNA_family_seqcls",
+      "rbp_binding_seqcls",
+      "secondary_structure_pair",
+      "splice_acceptor_seqcls",
+      "splice_donor_seqcls"
+    ],
+    "configs": [
+      "A8-P4g",
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P4g",
+      "P5",
+      "P6"
+    ],
+    "seeds": [
+      17,
+      41,
+      89
+    ],
+    "cells_total": 162,
+    "pred_test_present": 162,
+    "pred_val_present_on_disk": 133,
+    "pred_val_missing_on_disk": 29
+  },
+  "student_checkpoints": {
+    "best_val_step": 8000,
+    "latest_step": 20000,
+    "paper_eval_uses": "best_val (stage4b_paper_eval.pt)"
+  },
+  "trainonly_rerun": {
+    "slurm_job": 65397,
+    "task": "secondary_structure_pair",
+    "pool": "split==train only, n=100 per model (post-filter cap)",
+    "models_with_real_rows": 28,
+    "models_total": 37,
+    "result": "rinalmo_giga L31H13 rank 1 (AUPRC 0.9810), L31H1 rank 2 (0.9728); top-30 overlap 25/30; 15-head selection unchanged"
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "relative_path": "src/rna_head_alignment/screening/head_scan.py",
+    "change_type": "bugfix+feature",
+    "old_sha256": "26ed6aff69b00bc267926af2564c3c179e0468d391cee2c2ab2b584faecda3a7",
+    "new_sha256": "f16f110e47c3099adbe2b60bc6e79b2b1032661a2d3b0f058a1195ce4e374fd2",
+    "evidence": "two hunks: (1) bundle.attentions.numpy() -> .detach().cpu().numpy() (CUDA tensors raised TypeError, silently swallowed -> empty atlas on GPU; job 65391 37/37 empty); (2) optional split_filter/post_filter_limit config keys, default off (byte-identical legacy behavior)",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "configs/screening_trainonly_secondary.yaml",
+    "change_type": "new_config",
+    "old_sha256": null,
+    "new_sha256": "36556d58a00830c05da920101a2d33dd514f6927f6cc9e48f8c624a18ae04bab",
+    "evidence": "train-only re-screening config used by Slurm job 65397",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "scripts/11_trainonly_secondary.sbatch",
+    "change_type": "new_script",
+    "old_sha256": null,
+    "new_sha256": "843496a2e91dd397027e78280840cd7fa663f79366f21814857111da62938604",
+    "evidence": "single-GPU job script; python taken from RHA_PYTHON env var (default: `python` from PATH) - no server-specific paths baked in",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "analysis/trainonly_secondary_rerank.py",
+    "change_type": "new_analysis",
+    "old_sha256": null,
+    "new_sha256": "93aabdc6cc4b8c6891c7c9aa5c190325b39edf32f86bc74483c7218e75132fc8",
+    "evidence": "rebuilds top-30 ranking from train-only atlas and compares with stored mixed-split selection",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "analysis/replay_downstream_metrics.py",
+    "change_type": "new_analysis",
+    "old_sha256": null,
+    "new_sha256": "2c2295e80a3a779c20e1df73871017100af60e528125b6cbf4f9e61982f55b51",
+    "evidence": "offline replay: recomputes per-seed downstream metrics from packaged per-sequence predictions and compares with the published per-seed table; 273/273 checks MATCH (max abs diff 2.0e-15)",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "analysis/figures/plot_heatmaps_blue_rawdata.py",
+    "change_type": "new_analysis",
+    "old_sha256": null,
+    "new_sha256": "eb145045395ff17deb8bb5e321405fc547c9ce2e6a78b2a4a83c02508eb9a7c2",
+    "evidence": "Fig.2 blue heatmap redraw from raw atlas values (corrects two mislabeled cells 0.49->0.48, 0.18->0.19); recomputes Fig2b Jaccard matrix and asserts agreement with metadata/fig2b_jaccard_matrix_audit.csv",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "analysis/figures/plot_fig3_async_v2.py",
+    "change_type": "new_analysis",
+    "old_sha256": null,
+    "new_sha256": "df50357ad7d4640693bbca5815f2581b6f6b04ed0276d82272df36db22317935",
+    "evidence": "Fig.3 v2 systems panel plotting script (measured costs from metadata/fig3_v2_measured_costs.csv)",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "analysis/figures/figstyle.py",
+    "change_type": "new_analysis",
+    "old_sha256": null,
+    "new_sha256": "094464a728cba9aea9ef719b2412c6b22b705546880fcc5d769688a526850ce5",
+    "evidence": "shared matplotlib style helper",
+    "requires_manual_merge": false
+  },
+  {
+    "relative_path": "analysis/figures/panelstyle.py",
+    "change_type": "new_analysis",
+    "old_sha256": null,
+    "new_sha256": "c4b8d474c882939238ea5648789072063effc212b65188aa8f13351de6956f9e",
+    "evidence": "shared panel layout helper",
+    "requires_manual_merge": false
+  }
+]

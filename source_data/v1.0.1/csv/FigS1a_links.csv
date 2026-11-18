@@ -1,0 +1,61 @@
+stage,source,target,value,stroke_width,tasks,data_sources,overlap_basis
+0,PT: 3UTRBERT pretraining corpus,human mRNA/3UTR,12.0,72.0,mrna_ribosome_loading_regression;mrna_stability_cds_bart_regression;mrna_stability_gleghorn_regression,3UTRBERT pretraining corpus,domain-level UTR/mRNA post-transcriptional overlap
+2,mRNA_ribosome_loading,L6: sequence-level bank,8.0,55.995859583285764,mrna_ribosome_loading_regression,3UTRBERT pretraining corpus;RNAscope Kaggle;UTR-LM pretraining corpus;mRNA-FM pretraining corpus,benchmark task registration;domain-level 5UTR translation/function overlap;domain-level UTR/mRNA post-transcriptional overlap;metadata-only mRNA domain overlap
+2,mRNA_stability_cds_bart,L6: sequence-level bank,6.0,46.84830679590961,mrna_stability_cds_bart_regression,3UTRBERT pretraining corpus;HF/mRNA stability;mRNA-FM pretraining corpus,benchmark task registration;domain-level UTR/mRNA post-transcriptional overlap;metadata-only mRNA domain overlap
+2,mRNA_stability_gleghorn,L6: sequence-level bank,6.0,46.84830679590961,mrna_stability_gleghorn_regression,3UTRBERT pretraining corpus;HF/mRNA stability;mRNA-FM pretraining corpus,benchmark task registration;domain-level UTR/mRNA post-transcriptional overlap;metadata-only mRNA domain overlap
+2,ncRNA_family_seqcls,L6: sequence-level bank,5.0,41.840949029825694,ncRNA_family_seqcls,RNA-FM pretraining corpus;RNABERT pretraining corpus;RNAErnie pretraining corpus;Rfam/HF;RiNALMo pretraining corpus,benchmark task registration;domain-level ncRNA/RNAcentral/Rfam overlap;metadata-only broad RNA domain overlap;source-family overlap: RiNALMo includes Rfam/RNAcentral
+1,human mRNA/3UTR,mRNA_ribosome_loading,4.0,36.434877903589545,mrna_ribosome_loading_regression,3UTRBERT pretraining corpus,domain-level UTR/mRNA post-transcriptional overlap
+1,human mRNA/3UTR,mRNA_stability_cds_bart,4.0,36.434877903589545,mrna_stability_cds_bart_regression,3UTRBERT pretraining corpus,domain-level UTR/mRNA post-transcriptional overlap
+1,human mRNA/3UTR,mRNA_stability_gleghorn,4.0,36.434877903589545,mrna_stability_gleghorn_regression,3UTRBERT pretraining corpus,domain-level UTR/mRNA post-transcriptional overlap
+0,PT: mRNA-FM pretraining corpus,mRNA transcript corpus,3.0,30.482831245050978,mrna_ribosome_loading_regression;mrna_stability_cds_bart_regression;mrna_stability_gleghorn_regression,mRNA-FM pretraining corpus,metadata-only mRNA domain overlap
+0,BM: RNAscope Kaggle,mixed benchmark RNA,3.0,30.482831245050978,chemical_reactivity_rnascope;mrna_ribosome_loading_regression;rnascope_contact_map,RNAscope Kaggle,benchmark task registration
+0,BM: Kaggle/HF Ribonanza,synthetic/natural RNA assay,3.0,30.482831245050978,chemical_reactivity_ribonanza_2a3;chemical_reactivity_ribonanza_dms;chemical_reactivity_token,Kaggle/HF Ribonanza,benchmark task registration
+0,BM: Kaggle/OpenVaccine fallback,synthetic viral/SARS-CoV-2 RNA,3.0,30.482831245050978,openvaccine_deg_mg_50c_token;openvaccine_deg_mg_ph10_token;openvaccine_reactivity_token,Kaggle/OpenVaccine fallback,benchmark task registration
+0,PT: UTR-LM pretraining corpus,human/model-vertebrate 5UTR,2.0,23.707115806928762,mrna_ribosome_loading_regression,UTR-LM pretraining corpus,domain-level 5UTR translation/function overlap
+0,BM: HF/mRNA stability,human/cell-line mRNA assay,2.0,23.707115806928762,mrna_stability_cds_bart_regression;mrna_stability_gleghorn_regression,HF/mRNA stability,benchmark task registration
+1,multi-species/database ncRNA,ncRNA_family_seqcls,2.0,23.707115806928762,ncRNA_family_seqcls,RNA-FM pretraining corpus;Rfam/HF,benchmark task registration;domain-level ncRNA/RNAcentral/Rfam overlap
+1,human/model-vertebrate 5UTR,mRNA_ribosome_loading,2.0,23.707115806928762,mrna_ribosome_loading_regression,UTR-LM pretraining corpus,domain-level 5UTR translation/function overlap
+2,splice_site_seqcls,L6: sequence-level bank,2.0,23.707115806928762,splice_site_seqcls,RNAscope/splice benchmarks;SpliceBERT pretraining corpus,benchmark task registration;domain-level splice context overlap
+0,PT: RNA-FM pretraining corpus,multi-species/database ncRNA,1.0,15.425531035682733,ncRNA_family_seqcls,RNA-FM pretraining corpus,domain-level ncRNA/RNAcentral/Rfam overlap
+0,PT: RNABERT pretraining corpus,human ncRNA,1.0,15.425531035682733,ncRNA_family_seqcls,RNABERT pretraining corpus,domain-level ncRNA/RNAcentral/Rfam overlap
+0,PT: RNAErnie pretraining corpus,broad RNA corpus,1.0,15.425531035682733,ncRNA_family_seqcls,RNAErnie pretraining corpus,metadata-only broad RNA domain overlap
+0,PT: RiNALMo pretraining corpus,multi-species/database RNA,1.0,15.425531035682733,ncRNA_family_seqcls,RiNALMo pretraining corpus,source-family overlap: RiNALMo includes Rfam/RNAcentral
+0,PT: SpliceBERT pretraining corpus,vertebrate pre-mRNA,1.0,15.425531035682733,splice_site_seqcls,SpliceBERT pretraining corpus,domain-level splice context overlap
+0,BM: RNAscope/RBP benchmarks,mixed eukaryotic RNA,1.0,15.425531035682733,rbp_binding_seqcls,RNAscope/RBP benchmarks,benchmark task registration
+0,BM: RNAscope/splice benchmarks,vertebrate/pre-mRNA context,1.0,15.425531035682733,splice_site_seqcls,RNAscope/splice benchmarks,benchmark task registration
+0,BM: Rfam/HF,multi-species/database ncRNA,1.0,15.425531035682733,ncRNA_family_seqcls,Rfam/HF,benchmark task registration
+0,BM: RNAGlib/PDB-derived,PDB-derived RNA structures,1.0,15.425531035682733,rna3d_rnaglib,RNAGlib/PDB-derived,benchmark task registration
+0,BM: bpRNA/PDB/HF,mixed RNA structure database,1.0,15.425531035682733,secondary_structure_pair,bpRNA/PDB/HF,benchmark task registration
+1,mRNA transcript corpus,mRNA_ribosome_loading,1.0,15.425531035682733,mrna_ribosome_loading_regression,mRNA-FM pretraining corpus,metadata-only mRNA domain overlap
+1,mRNA transcript corpus,mRNA_stability_cds_bart,1.0,15.425531035682733,mrna_stability_cds_bart_regression,mRNA-FM pretraining corpus,metadata-only mRNA domain overlap
+1,mRNA transcript corpus,mRNA_stability_gleghorn,1.0,15.425531035682733,mrna_stability_gleghorn_regression,mRNA-FM pretraining corpus,metadata-only mRNA domain overlap
+1,mixed benchmark RNA,mRNA_ribosome_loading,1.0,15.425531035682733,mrna_ribosome_loading_regression,RNAscope Kaggle,benchmark task registration
+1,mixed benchmark RNA,RNAscope_chemical_reactivity,1.0,15.425531035682733,chemical_reactivity_rnascope,RNAscope Kaggle,benchmark task registration
+1,mixed benchmark RNA,RNAscope_contact_map,1.0,15.425531035682733,rnascope_contact_map,RNAscope Kaggle,benchmark task registration
+1,human/cell-line mRNA assay,mRNA_stability_cds_bart,1.0,15.425531035682733,mrna_stability_cds_bart_regression,HF/mRNA stability,benchmark task registration
+1,human/cell-line mRNA assay,mRNA_stability_gleghorn,1.0,15.425531035682733,mrna_stability_gleghorn_regression,HF/mRNA stability,benchmark task registration
+1,broad RNA corpus,ncRNA_family_seqcls,1.0,15.425531035682733,ncRNA_family_seqcls,RNAErnie pretraining corpus,metadata-only broad RNA domain overlap
+1,human ncRNA,ncRNA_family_seqcls,1.0,15.425531035682733,ncRNA_family_seqcls,RNABERT pretraining corpus,domain-level ncRNA/RNAcentral/Rfam overlap
+1,mixed eukaryotic RNA,rbp_binding_seqcls,1.0,15.425531035682733,rbp_binding_seqcls,RNAscope/RBP benchmarks,benchmark task registration
+1,multi-species/database RNA,ncRNA_family_seqcls,1.0,15.425531035682733,ncRNA_family_seqcls,RiNALMo pretraining corpus,source-family overlap: RiNALMo includes Rfam/RNAcentral
+1,vertebrate pre-mRNA,splice_site_seqcls,1.0,15.425531035682733,splice_site_seqcls,SpliceBERT pretraining corpus,domain-level splice context overlap
+1,vertebrate/pre-mRNA context,splice_site_seqcls,1.0,15.425531035682733,splice_site_seqcls,RNAscope/splice benchmarks,benchmark task registration
+1,synthetic viral/SARS-CoV-2 RNA,OpenVaccine_deg_Mg_50C,1.0,15.425531035682733,openvaccine_deg_mg_50c_token,Kaggle/OpenVaccine fallback,benchmark task registration
+1,synthetic viral/SARS-CoV-2 RNA,OpenVaccine_deg_Mg_pH10,1.0,15.425531035682733,openvaccine_deg_mg_ph10_token,Kaggle/OpenVaccine fallback,benchmark task registration
+1,synthetic viral/SARS-CoV-2 RNA,OpenVaccine_reactivity,1.0,15.425531035682733,openvaccine_reactivity_token,Kaggle/OpenVaccine fallback,benchmark task registration
+1,synthetic/natural RNA assay,ribonanza_2A3,1.0,15.425531035682733,chemical_reactivity_ribonanza_2a3,Kaggle/HF Ribonanza,benchmark task registration
+1,synthetic/natural RNA assay,ribonanza_DMS,1.0,15.425531035682733,chemical_reactivity_ribonanza_dms,Kaggle/HF Ribonanza,benchmark task registration
+1,synthetic/natural RNA assay,ribonanza_reactivity_all,1.0,15.425531035682733,chemical_reactivity_token,Kaggle/HF Ribonanza,benchmark task registration
+1,PDB-derived RNA structures,RNA3D_RNAGlib,1.0,15.425531035682733,rna3d_rnaglib,RNAGlib/PDB-derived,benchmark task registration
+1,mixed RNA structure database,secondary_structure_pair,1.0,15.425531035682733,secondary_structure_pair,bpRNA/PDB/HF,benchmark task registration
+2,rbp_binding_seqcls,L6: sequence-level bank,1.0,15.425531035682733,rbp_binding_seqcls,RNAscope/RBP benchmarks,benchmark task registration
+2,OpenVaccine_deg_Mg_50C,L8: token/reactivity bank,1.0,15.425531035682733,openvaccine_deg_mg_50c_token,Kaggle/OpenVaccine fallback,benchmark task registration
+2,OpenVaccine_deg_Mg_pH10,L8: token/reactivity bank,1.0,15.425531035682733,openvaccine_deg_mg_ph10_token,Kaggle/OpenVaccine fallback,benchmark task registration
+2,OpenVaccine_reactivity,L8: token/reactivity bank,1.0,15.425531035682733,openvaccine_reactivity_token,Kaggle/OpenVaccine fallback,benchmark task registration
+2,RNAscope_chemical_reactivity,L8: token/reactivity bank,1.0,15.425531035682733,chemical_reactivity_rnascope,RNAscope Kaggle,benchmark task registration
+2,ribonanza_2A3,L8: token/reactivity bank,1.0,15.425531035682733,chemical_reactivity_ribonanza_2a3,Kaggle/HF Ribonanza,benchmark task registration
+2,ribonanza_DMS,L8: token/reactivity bank,1.0,15.425531035682733,chemical_reactivity_ribonanza_dms,Kaggle/HF Ribonanza,benchmark task registration
+2,ribonanza_reactivity_all,L8: token/reactivity bank,1.0,15.425531035682733,chemical_reactivity_token,Kaggle/HF Ribonanza,benchmark task registration
+2,RNA3D_RNAGlib,L12: pairwise structure bank,1.0,15.425531035682733,rna3d_rnaglib,RNAGlib/PDB-derived,benchmark task registration
+2,RNAscope_contact_map,L12: pairwise structure bank,1.0,15.425531035682733,rnascope_contact_map,RNAscope Kaggle,benchmark task registration
+2,secondary_structure_pair,L12: pairwise structure bank,1.0,15.425531035682733,secondary_structure_pair,bpRNA/PDB/HF,benchmark task registration

@@ -229,7 +229,8 @@ def _token_columns(df: pd.DataFrame, task_cfg: dict[str, Any]) -> list[str]:
     ]
 
 
-def _load_jsonl_pairwise(task: str, task_type: str, path: Path, limit: int | None, max_len: int | None) -> list[TaskSample]:
+def _load_jsonl_pairwise(task: str, task_type: str, path: Path, limit: int | None, max_len: int | None,
+                         split_filter: set[str] | None = None) -> list[TaskSample]:
     rows = []
     with path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -238,6 +239,8 @@ def _load_jsonl_pairwise(task: str, task_type: str, path: Path, limit: int | Non
             if not line.strip():
                 continue
             obj = json.loads(line)
+            if split_filter and str(obj.get("split", "")) not in split_filter:
+                continue
             seq = normalize_rna(obj.get("sequence", ""))
             if not seq or (max_len and len(seq) > max_len):
                 continue
@@ -354,9 +357,18 @@ def load_task_samples(
     task_cfg: dict[str, Any],
     limit: int | None = None,
     max_len: int | None = None,
+    split_filter: set[str] | None = None,
 ) -> list[TaskSample]:
     task_type = str(task_cfg["task_type"])
     path = resolve_path(task_cfg["path"])
+    if split_filter:
+        if task_type == "pairwise" or (task_type == "rna3d_contact" and path.suffix.lower() == ".jsonl"):
+            return _load_jsonl_pairwise(task_name, task_type, path, limit, max_len, split_filter)
+        # Preserve existing loaders when no filter is requested; with a
+        # filter, apply the cap to the retained sample pool.
+        samples = load_task_samples(task_name, task_cfg, limit=None, max_len=max_len)
+        samples = [sample for sample in samples if str(sample.split) in split_filter]
+        return samples[:limit] if limit is not None else samples
     if task_type in {"pairwise"}:
         return _load_jsonl_pairwise(task_name, task_type, path, limit, max_len)
     if task_type == "rna3d_contact":

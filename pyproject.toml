@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rna-head-alignment"
-version = "1.0.0"
+version = "1.0.1"
 description = "Functional attention head distillation across RNA foundation models: head screening, teacher-head selection, and head-to-head attention-map alignment."
 requires-python = ">=3.10"
 dependencies = [

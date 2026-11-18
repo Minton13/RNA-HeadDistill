@@ -1,0 +1,23 @@
+comparison,basis,metric,higher_is_better,A3_mean,comparator_mean,delta_A3minusComp,A3_wins,comparability
+A3 vs A1_single_teacher_top1,own-target,KL,False,0.5142485497675221,0.47348594537269756,0.04076260439482454,False,partial: target scope differs (3 heads vs 15); own-target macro only
+A3 vs A1_single_teacher_top1,own-target,Cosine,True,0.77894020149512,0.8161087264795652,-0.03716852498444523,False,partial: target scope differs (3 heads vs 15); own-target macro only
+A3 vs A2_head2head_top3,own-target,KL,False,0.5142485497675221,0.31426533770815385,0.19998321205936825,False,matched-9 subset (top-3/route); same training budget
+A3 vs A2_head2head_top3,own-target,Cosine,True,0.77894020149512,0.8642195696926595,-0.08527936819753945,False,matched-9 subset (top-3/route); same training budget
+A3 vs A2_head2head_top3,matched-9,KL,False,0.37411179246033927,0.31426533770815385,0.05984645475218542,False,matched-9 subset (top-3/route); same training budget
+A3 vs A2_head2head_top3,matched-9,Cosine,True,0.7922270730101321,0.8642195696926595,-0.07199249668252738,False,matched-9 subset (top-3/route); same training budget
+A3 vs A4_consensus_top5,own-target,KL,False,0.5142485497675221,0.3979810611031535,0.11626748866436859,False,NO for absolute values (route-consensus targets); listed for reference
+A3 vs A4_consensus_top5,own-target,Cosine,True,0.77894020149512,0.6534119843864018,0.1255282171087182,True,NO for absolute values (route-consensus targets); listed for reference
+A3 vs A5_random_pairing,own-target,KL,False,0.5142485497675221,0.534711442623804,-0.02046289285628189,True,matched-9 subset; same 15 targets overall
+A3 vs A5_random_pairing,own-target,Cosine,True,0.77894020149512,0.7683652422695483,0.010574959225571723,True,matched-9 subset; same 15 targets overall
+A3 vs A5_random_pairing,matched-9,KL,False,0.37411179246033927,0.3780123239606701,-0.003900531500330817,True,matched-9 subset; same 15 targets overall
+A3 vs A5_random_pairing,matched-9,Cosine,True,0.7922270730101321,0.7850464275639268,0.007180645446205225,True,matched-9 subset; same 15 targets overall
+A3 vs A6_linear_adapter,own-target,KL,False,0.5142485497675221,0.6775162061712182,-0.16326765640369612,True,matched-9 subset; same 15 targets overall
+A3 vs A6_linear_adapter,own-target,Cosine,True,0.77894020149512,0.6852229376947968,0.09371726380032319,True,matched-9 subset; same 15 targets overall
+A3 vs A6_linear_adapter,matched-9,KL,False,0.37411179246033927,0.41245617694188147,-0.038344384481542204,True,matched-9 subset; same 15 targets overall
+A3 vs A6_linear_adapter,matched-9,Cosine,True,0.7922270730101321,0.7549739888377859,0.037253084172346185,True,matched-9 subset; same 15 targets overall
+A3 vs A7_all_from_L12,own-target,KL,False,0.5142485497675221,0.6064351732166512,-0.09218662344912909,True,same 15 targets but all read from L12; own-target macro only
+A3 vs A7_all_from_L12,own-target,Cosine,True,0.77894020149512,0.7276046444516094,0.05133555704351056,True,same 15 targets but all read from L12; own-target macro only
+A3 vs A8_adapters_only,own-target,KL,False,0.5142485497675221,1.3511620862884033,-0.8369135365208812,True,same 15 targets; frozen backbone by design
+A3 vs A8_adapters_only,own-target,Cosine,True,0.77894020149512,0.4619900251359274,0.3169501763591926,True,same 15 targets; frozen backbone by design
+A3 vs A8_adapters_only,matched-9,KL,False,0.37411179246033927,0.7473732656847188,-0.3732614732243796,True,same 15 targets; frozen backbone by design
+A3 vs A8_adapters_only,matched-9,Cosine,True,0.7922270730101321,0.570801564356753,0.22142550865337907,True,same 15 targets; frozen backbone by design

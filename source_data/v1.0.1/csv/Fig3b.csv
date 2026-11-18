@@ -1,0 +1,204 @@
+n_experiments,curve,cumulative_gpu_hours
+1.0,offline cache (1x 9-teacher extraction + Nx cached reads),146.70741677148183
+2.0,offline cache (1x 9-teacher extraction + Nx cached reads),154.21292413585422
+3.0,offline cache (1x 9-teacher extraction + Nx cached reads),161.7184315002266
+4.0,offline cache (1x 9-teacher extraction + Nx cached reads),169.22393886459895
+5.0,offline cache (1x 9-teacher extraction + Nx cached reads),176.72944622897134
+6.0,offline cache (1x 9-teacher extraction + Nx cached reads),184.2349535933437
+7.0,offline cache (1x 9-teacher extraction + Nx cached reads),191.7404609577161
+8.0,offline cache (1x 9-teacher extraction + Nx cached reads),199.24596832208846
+9.0,offline cache (1x 9-teacher extraction + Nx cached reads),206.75147568646082
+10.0,offline cache (1x 9-teacher extraction + Nx cached reads),214.25698305083318
+11.0,offline cache (1x 9-teacher extraction + Nx cached reads),221.76249041520558
+12.0,offline cache (1x 9-teacher extraction + Nx cached reads),229.26799777957794
+13.0,offline cache (1x 9-teacher extraction + Nx cached reads),236.77350514395033
+14.0,offline cache (1x 9-teacher extraction + Nx cached reads),244.2790125083227
+15.0,offline cache (1x 9-teacher extraction + Nx cached reads),251.78451987269506
+16.0,offline cache (1x 9-teacher extraction + Nx cached reads),259.2900272370674
+17.0,offline cache (1x 9-teacher extraction + Nx cached reads),266.79553460143984
+18.0,offline cache (1x 9-teacher extraction + Nx cached reads),274.30104196581215
+19.0,offline cache (1x 9-teacher extraction + Nx cached reads),281.80654933018457
+20.0,offline cache (1x 9-teacher extraction + Nx cached reads),289.31205669455693
+21.0,offline cache (1x 9-teacher extraction + Nx cached reads),296.8175640589293
+22.0,offline cache (1x 9-teacher extraction + Nx cached reads),304.3230714233017
+23.0,offline cache (1x 9-teacher extraction + Nx cached reads),311.828578787674
+24.0,offline cache (1x 9-teacher extraction + Nx cached reads),319.33408615204644
+25.0,offline cache (1x 9-teacher extraction + Nx cached reads),326.8395935164188
+26.0,offline cache (1x 9-teacher extraction + Nx cached reads),334.34510088079116
+27.0,offline cache (1x 9-teacher extraction + Nx cached reads),341.8506082451635
+28.0,offline cache (1x 9-teacher extraction + Nx cached reads),349.3561156095359
+29.0,offline cache (1x 9-teacher extraction + Nx cached reads),356.8616229739083
+30.0,offline cache (1x 9-teacher extraction + Nx cached reads),364.3671303382806
+31.0,offline cache (1x 9-teacher extraction + Nx cached reads),371.87263770265304
+32.0,offline cache (1x 9-teacher extraction + Nx cached reads),379.3781450670254
+33.0,offline cache (1x 9-teacher extraction + Nx cached reads),386.88365243139776
+34.0,offline cache (1x 9-teacher extraction + Nx cached reads),394.3891597957702
+35.0,offline cache (1x 9-teacher extraction + Nx cached reads),401.8946671601425
+36.0,offline cache (1x 9-teacher extraction + Nx cached reads),409.4001745245149
+37.0,offline cache (1x 9-teacher extraction + Nx cached reads),416.9056818888872
+38.0,offline cache (1x 9-teacher extraction + Nx cached reads),424.41118925325964
+39.0,offline cache (1x 9-teacher extraction + Nx cached reads),431.91669661763206
+40.0,offline cache (1x 9-teacher extraction + Nx cached reads),439.42220398200436
+41.0,offline cache (1x 9-teacher extraction + Nx cached reads),446.9277113463768
+42.0,offline cache (1x 9-teacher extraction + Nx cached reads),454.4332187107491
+43.0,offline cache (1x 9-teacher extraction + Nx cached reads),461.9387260751215
+44.0,offline cache (1x 9-teacher extraction + Nx cached reads),469.4442334394939
+45.0,offline cache (1x 9-teacher extraction + Nx cached reads),476.94974080386623
+46.0,offline cache (1x 9-teacher extraction + Nx cached reads),484.45524816823865
+47.0,offline cache (1x 9-teacher extraction + Nx cached reads),491.96075553261096
+48.0,offline cache (1x 9-teacher extraction + Nx cached reads),499.4662628969834
+49.0,offline cache (1x 9-teacher extraction + Nx cached reads),506.9717702613557
+50.0,offline cache (1x 9-teacher extraction + Nx cached reads),514.4772776257281
+1.0,"online, 1 teacher",13.062402034281366
+2.0,"online, 1 teacher",26.12480406856273
+3.0,"online, 1 teacher",39.1872061028441
+4.0,"online, 1 teacher",52.24960813712546
+5.0,"online, 1 teacher",65.31201017140683
+6.0,"online, 1 teacher",78.3744122056882
+7.0,"online, 1 teacher",91.43681423996956
+8.0,"online, 1 teacher",104.49921627425093
+9.0,"online, 1 teacher",117.56161830853229
+10.0,"online, 1 teacher",130.62402034281365
+11.0,"online, 1 teacher",143.68642237709503
+12.0,"online, 1 teacher",156.7488244113764
+13.0,"online, 1 teacher",169.81122644565775
+14.0,"online, 1 teacher",182.87362847993913
+15.0,"online, 1 teacher",195.93603051422048
+16.0,"online, 1 teacher",208.99843254850185
+17.0,"online, 1 teacher",222.06083458278323
+18.0,"online, 1 teacher",235.12323661706458
+19.0,"online, 1 teacher",248.18563865134595
+20.0,"online, 1 teacher",261.2480406856273
+21.0,"online, 1 teacher",274.3104427199087
+22.0,"online, 1 teacher",287.37284475419006
+23.0,"online, 1 teacher",300.43524678847143
+24.0,"online, 1 teacher",313.4976488227528
+25.0,"online, 1 teacher",326.5600508570341
+26.0,"online, 1 teacher",339.6224528913155
+27.0,"online, 1 teacher",352.6848549255969
+28.0,"online, 1 teacher",365.74725695987826
+29.0,"online, 1 teacher",378.80965899415963
+30.0,"online, 1 teacher",391.87206102844095
+31.0,"online, 1 teacher",404.93446306272233
+32.0,"online, 1 teacher",417.9968650970037
+33.0,"online, 1 teacher",431.0592671312851
+34.0,"online, 1 teacher",444.12166916556646
+35.0,"online, 1 teacher",457.1840711998478
+36.0,"online, 1 teacher",470.24647323412916
+37.0,"online, 1 teacher",483.30887526841053
+38.0,"online, 1 teacher",496.3712773026919
+39.0,"online, 1 teacher",509.4336793369733
+40.0,"online, 1 teacher",522.4960813712546
+41.0,"online, 1 teacher",535.558483405536
+42.0,"online, 1 teacher",548.6208854398174
+43.0,"online, 1 teacher",561.6832874740987
+44.0,"online, 1 teacher",574.7456895083801
+45.0,"online, 1 teacher",587.8080915426615
+46.0,"online, 1 teacher",600.8704935769429
+47.0,"online, 1 teacher",613.9328956112242
+48.0,"online, 1 teacher",626.9952976455056
+49.0,"online, 1 teacher",640.0576996797869
+50.0,"online, 1 teacher",653.1201017140683
+1.0,"online, 3 teachers",46.400636469036485
+2.0,"online, 3 teachers",92.80127293807297
+3.0,"online, 3 teachers",139.20190940710944
+4.0,"online, 3 teachers",185.60254587614594
+5.0,"online, 3 teachers",232.00318234518244
+6.0,"online, 3 teachers",278.4038188142189
+7.0,"online, 3 teachers",324.8044552832554
+8.0,"online, 3 teachers",371.2050917522919
+9.0,"online, 3 teachers",417.6057282213284
+10.0,"online, 3 teachers",464.0063646903649
+11.0,"online, 3 teachers",510.4070011594013
+12.0,"online, 3 teachers",556.8076376284378
+13.0,"online, 3 teachers",603.2082740974743
+14.0,"online, 3 teachers",649.6089105665108
+15.0,"online, 3 teachers",696.0095470355473
+16.0,"online, 3 teachers",742.4101835045838
+17.0,"online, 3 teachers",788.8108199736203
+18.0,"online, 3 teachers",835.2114564426568
+19.0,"online, 3 teachers",881.6120929116933
+20.0,"online, 3 teachers",928.0127293807298
+21.0,"online, 3 teachers",974.4133658497661
+22.0,"online, 3 teachers",1020.8140023188026
+23.0,"online, 3 teachers",1067.2146387878392
+24.0,"online, 3 teachers",1113.6152752568755
+25.0,"online, 3 teachers",1160.015911725912
+26.0,"online, 3 teachers",1206.4165481949485
+27.0,"online, 3 teachers",1252.817184663985
+28.0,"online, 3 teachers",1299.2178211330215
+29.0,"online, 3 teachers",1345.618457602058
+30.0,"online, 3 teachers",1392.0190940710945
+31.0,"online, 3 teachers",1438.419730540131
+32.0,"online, 3 teachers",1484.8203670091675
+33.0,"online, 3 teachers",1531.221003478204
+34.0,"online, 3 teachers",1577.6216399472405
+35.0,"online, 3 teachers",1624.022276416277
+36.0,"online, 3 teachers",1670.4229128853135
+37.0,"online, 3 teachers",1716.82354935435
+38.0,"online, 3 teachers",1763.2241858233865
+39.0,"online, 3 teachers",1809.624822292423
+40.0,"online, 3 teachers",1856.0254587614595
+41.0,"online, 3 teachers",1902.4260952304958
+42.0,"online, 3 teachers",1948.8267316995323
+43.0,"online, 3 teachers",1995.2273681685688
+44.0,"online, 3 teachers",2041.6280046376053
+45.0,"online, 3 teachers",2088.0286411066418
+46.0,"online, 3 teachers",2134.4292775756785
+47.0,"online, 3 teachers",2180.8299140447148
+48.0,"online, 3 teachers",2227.230550513751
+49.0,"online, 3 teachers",2273.6311869827878
+50.0,"online, 3 teachers",2320.031823451824
+1.0,"online, 9 teachers (extrapolated)",139.20190940710947
+2.0,"online, 9 teachers (extrapolated)",278.40381881421894
+3.0,"online, 9 teachers (extrapolated)",417.6057282213284
+4.0,"online, 9 teachers (extrapolated)",556.8076376284379
+5.0,"online, 9 teachers (extrapolated)",696.0095470355474
+6.0,"online, 9 teachers (extrapolated)",835.2114564426568
+7.0,"online, 9 teachers (extrapolated)",974.4133658497663
+8.0,"online, 9 teachers (extrapolated)",1113.6152752568757
+9.0,"online, 9 teachers (extrapolated)",1252.8171846639852
+10.0,"online, 9 teachers (extrapolated)",1392.0190940710947
+11.0,"online, 9 teachers (extrapolated)",1531.2210034782042
+12.0,"online, 9 teachers (extrapolated)",1670.4229128853135
+13.0,"online, 9 teachers (extrapolated)",1809.624822292423
+14.0,"online, 9 teachers (extrapolated)",1948.8267316995325
+15.0,"online, 9 teachers (extrapolated)",2088.028641106642
+16.0,"online, 9 teachers (extrapolated)",2227.2305505137515
+17.0,"online, 9 teachers (extrapolated)",2366.4324599208608
+18.0,"online, 9 teachers (extrapolated)",2505.6343693279705
+19.0,"online, 9 teachers (extrapolated)",2644.8362787350798
+20.0,"online, 9 teachers (extrapolated)",2784.0381881421895
+21.0,"online, 9 teachers (extrapolated)",2923.2400975492988
+22.0,"online, 9 teachers (extrapolated)",3062.4420069564085
+23.0,"online, 9 teachers (extrapolated)",3201.6439163635177
+24.0,"online, 9 teachers (extrapolated)",3340.845825770627
+25.0,"online, 9 teachers (extrapolated)",3480.0477351777367
+26.0,"online, 9 teachers (extrapolated)",3619.249644584846
+27.0,"online, 9 teachers (extrapolated)",3758.4515539919557
+28.0,"online, 9 teachers (extrapolated)",3897.653463399065
+29.0,"online, 9 teachers (extrapolated)",4036.8553728061747
+30.0,"online, 9 teachers (extrapolated)",4176.057282213284
+31.0,"online, 9 teachers (extrapolated)",4315.259191620394
+32.0,"online, 9 teachers (extrapolated)",4454.461101027503
+33.0,"online, 9 teachers (extrapolated)",4593.663010434612
+34.0,"online, 9 teachers (extrapolated)",4732.8649198417215
+35.0,"online, 9 teachers (extrapolated)",4872.066829248832
+36.0,"online, 9 teachers (extrapolated)",5011.268738655941
+37.0,"online, 9 teachers (extrapolated)",5150.47064806305
+38.0,"online, 9 teachers (extrapolated)",5289.6725574701595
+39.0,"online, 9 teachers (extrapolated)",5428.87446687727
+40.0,"online, 9 teachers (extrapolated)",5568.076376284379
+41.0,"online, 9 teachers (extrapolated)",5707.278285691488
+42.0,"online, 9 teachers (extrapolated)",5846.4801950985975
+43.0,"online, 9 teachers (extrapolated)",5985.682104505707
+44.0,"online, 9 teachers (extrapolated)",6124.884013912817
+45.0,"online, 9 teachers (extrapolated)",6264.085923319926
+46.0,"online, 9 teachers (extrapolated)",6403.2878327270355
+47.0,"online, 9 teachers (extrapolated)",6542.489742134145
+48.0,"online, 9 teachers (extrapolated)",6681.691651541254
+49.0,"online, 9 teachers (extrapolated)",6820.893560948364
+50.0,"online, 9 teachers (extrapolated)",6960.0954703554735
+25.05030555300938,"break-even: offline cache vs online, 1 teacher",327.2171622149995
+3.578903389998442,"break-even: offline cache vs online, 3 teachers",166.06339515712003
+1.0569909826537003,"break-even: offline cache vs online, 9 teachers (extrapolated)",147.135163011492
