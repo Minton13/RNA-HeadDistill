@@ -128,6 +128,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument('--pred-root', required=True, type=Path)
     ap.add_argument('--points-csv', required=True, type=Path)
+    ap.add_argument('--gated-points-csv', type=Path, default=None,
+                    help='optional per-seed point values incl. P4g/A8-P4g '
+                         '(metadata/downstream_perseed_points_p4g_a8.csv); '
+                         'A8_P4g maps to <task>/distilled_hidden_aligned_gated_a8/')
     ap.add_argument('--out', required=True, type=Path,
                     help='output prefix (.csv / .json)')
     args = ap.parse_args()
@@ -140,8 +144,7 @@ def main() -> None:
         pq, pt = base / 'pred_test.parquet', base / 'pred_test.pt'
         if not pq.exists() and not pt.exists():
             rows.append({'task': r['task'], 'mode': r['mode'], 'seed': r['seed'],
-                         'metric': '', 'status': ('NOT_PACKAGED' if r['task'] == 'secondary_structure_pair'
-                                                  else 'ERROR: required prediction missing'), 'abs_diff': None})
+                         'metric': '', 'status': ('NOT_PACKAGED' if r['task'] == 'secondary_structure_pair' else 'ERROR: required prediction missing'), 'abs_diff': None})
             continue
         try:
             if pq.exists():
@@ -164,6 +167,52 @@ def main() -> None:
                          'published': want, 'abs_diff': diff,
                          'status': 'MATCH' if diff <= TOL else 'MISMATCH'})
     rep = pd.DataFrame(rows)
+
+    # Optional: P4g / A8-P4g per-seed point values (separate directory for A8).
+    if args.gated_points_csv is not None:
+        gp = pd.read_csv(args.gated_points_csv)
+        grows = []
+        for r in gp.itertuples():
+            mode_dir = ('distilled_hidden_aligned_gated_a8'
+                        if r.mode_or_line == 'A8_P4g' else r.mode_or_line)
+            base = args.pred_root / r.task / mode_dir / f'seed_{r.seed}'
+            pq, pt = base / 'pred_test.parquet', base / 'pred_test.pt'
+            try:
+                if pq.exists():
+                    df0 = pd.read_parquet(pq)
+                    is_list = df0['logits'].map(lambda v: isinstance(v, (list, np.ndarray))).any()
+                    if is_list:
+                        got = check_ncrna(pq, pd.Series({'auroc': r.value}))['auroc'][0]
+                    else:
+                        y = df0['label'].to_numpy()
+                        s = df0['logits'].to_numpy(dtype=float)
+                        got = roc_auc_score(y, s)
+                elif pt.exists():
+                    import torch
+                    recs = torch.load(pt, map_location='cpu', weights_only=False)
+                    preds = np.concatenate([np.asarray(x['preds'], dtype=float) for x in recs])
+                    labels = np.concatenate([np.asarray(x['labels'], dtype=float) for x in recs])
+                    got = pearsonr(preds, labels)[0]
+                else:
+                    grows.append({'task': r.task, 'mode': mode_dir, 'seed': r.seed,
+                                  'metric': r.metric, 'status': ('NOT_PACKAGED' if r.task == 'secondary_structure_pair' else 'ERROR: required prediction missing'),
+                                  'abs_diff': None})
+                    continue
+            except Exception as e:  # noqa: BLE001
+                grows.append({'task': r.task, 'mode': mode_dir, 'seed': r.seed,
+                              'metric': r.metric, 'status': f'ERROR: {e!r}',
+                              'abs_diff': None})
+                continue
+            diff = abs(got - r.value)
+            grows.append({'task': r.task, 'mode': mode_dir, 'seed': r.seed,
+                          'metric': r.metric, 'recomputed': got, 'published': r.value,
+                          'abs_diff': diff,
+                          'status': 'MATCH' if diff <= TOL else 'MISMATCH'})
+        grep = pd.DataFrame(grows)
+        gated_csv = args.out.with_suffix('').as_posix() + '_gated.csv'
+        grep.to_csv(gated_csv, index=False)
+        rep = pd.concat([rep, grep], ignore_index=True)
+
     out_csv = args.out.with_suffix('.csv')
     rep.to_csv(out_csv, index=False)
     checked = rep[rep.status.isin(['MATCH', 'MISMATCH'])]

@@ -4,4 +4,4 @@ The actual GitHub v1.0.0 and main baseline was 4ba39846482c65cdad64a501643b1609c
 
 Local review additionally fixed loader-level filter-before-limit ordering, visible forward-error reporting, portable re-ranking paths and prediction-index validation. The server's two-hunk patch is not the final local code. The rebuilt patch and CODE_CHANGES.json record the final reviewed files; SERVER_CODE_CHANGES.json preserves the original server claims.
 
-Do not apply this overlay to an unknown baseline. Do not replace v1.0.0 assets or tags. Do not include __pycache__, .pyc, private audit material, prediction tensors or model weights in a normal source commit. The full data release remains blocked by the prediction path collisions.
+Do not apply this overlay to an unknown baseline. Do not replace v1.0.0 assets or tags. Do not include __pycache__, .pyc, private audit material, prediction tensors or model weights in a normal source commit. Server rev2 resolves the prediction collisions, adds gated per-seed replay and passes all 241 file hashes plus 408 metric checks. The local merge retains its additional filter-order, logging and index-validation fixes.

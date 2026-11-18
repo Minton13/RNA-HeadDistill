@@ -31,7 +31,7 @@
     "relative_path": "analysis/replay_downstream_metrics.py",
     "base_commit": "4ba39846482c65cdad64a501643b1609cdb45414",
     "old_sha256": null,
-    "new_sha256": "1981124cf7a5bed19528b2b5840d39f9f59c0ec56dbb02339992efa34836c746",
+    "new_sha256": "8f381c9c50e76ff46b47d59e7c5a02bebf260865d9049cc44a6816cfe3252d80",
     "review": "local audited merge; server originals retained separately"
   },
   {
@@ -96,5 +96,12 @@
     "old_sha256": null,
     "new_sha256": "d9a617c36231bd1e820dc0dcdc7777c44b6f760d3db4622bc97ed53423f19b96",
     "review": "local audited merge; server originals retained separately"
+  },
+  {
+    "relative_path": "tests/test_replay_required_files.py",
+    "base_commit": "97697b26c6e321be70a7b8863251417639ddc2ea",
+    "old_sha256": null,
+    "new_sha256": "a4c425afbec4a4181b7eeb0172b9b86de8b3798284e2872b5e06c7154ecf6629",
+    "review": "Required prediction absence is an error in both legacy and gated replay"
   }
 ]

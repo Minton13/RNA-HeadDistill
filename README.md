@@ -14,9 +14,7 @@ Yuming Zhang<sup>1,2,3</sup>, Boxue Tian<sup>1,2,*</sup>
 
 ## v1.0.1 reproducibility supplement
 
-The reviewed supplement fixes CUDA screening, logs sample failures, and filters annotated splits before sample limits. See [reproduction and release status](docs/README_REPRODUCTION.md), [changes](docs/CHANGELOG_v1.0.1.md), [22-row provenance](release-metadata/v1.0.1/dataset_provenance_public.csv), and [Source Data workbook](source_data/v1.0.1/SourceData.xlsx).
-
-The complete v1.0.1 data release is **pending**: local verification found 27 P4g/A8-P4g prediction path collisions and SHA256 mismatches. The existing [v1.0.0 release](https://github.com/Minton13/RNA-HeadDistill/releases/tag/v1.0.0) remains available and unchanged. No frozen figure or checkpoint was modified.
+The [v1.0.1 release](https://github.com/Minton13/RNA-HeadDistill/releases/tag/v1.0.1) adds corrected CUDA screening, visible error reporting, filtering before sample limits, 22-row provenance, [Source Data](source_data/v1.0.1/SourceData.xlsx), and prediction replay. Server rev2 separates P4g/A8-P4g paths: all **241 prediction files verify**, **408/408 metric checks match**, and **88 tests pass**. See the [reproduction guide](docs/README_REPRODUCTION.md) and [changes](docs/CHANGELOG_v1.0.1.md). The [v1.0.0 artifacts](https://github.com/Minton13/RNA-HeadDistill/releases/tag/v1.0.0) remain unchanged.
 
 The repository implements the full workflow of the paper:
 
@@ -333,11 +331,11 @@ pip install -e .
 pytest            # or: PYTHONPATH=src python -m pytest
 ```
 
-The suite (86 tests, CPU-only, no network) covers attention-extraction
+The suite (88 tests; CPU-compatible with optional CUDA checks; no network) covers attention-extraction
 shapes, cache round-trip and slim-cache equivalence, head2head losses/metrics/
 gradient routing/DDP wiring, MLM utilities, manifest builders, task loaders,
 and collation, including both tuple and tensor layer outputs. Release
-validation: **86 passed** with PyTorch 2.7.1, Transformers 5.8.1 and
+validation: **88 passed** with PyTorch 2.7.1, Transformers 5.8.1 and
 MultiMolecule 0.1.0.
 
 ## Notes

@@ -10,4 +10,4 @@ The 32 GB secondary-structure prediction files are index-only. Access and retent
 
 NT-v2-500m and ModernGENA-base weights are not mirrored. Their exact source revisions are indexed; upstream access and licensing still apply.
 
-Prediction artifacts include reference labels as well as model scores. A blanket CC BY statement for model outputs does not establish redistribution rights over every source label. The supplied provenance/rights gaps remain open; the currently colliding prediction archive is withheld pending technical correction and the required licensing evidence.
+Prediction artifacts include reference labels as well as model scores. A blanket CC BY statement for model outputs does not establish redistribution rights over every source label. The supplied provenance/rights uncertainty markers remain open. The rev2 prediction archive resolves the path collisions; reference labels remain subject to their source terms rather than the author-created output grant.
